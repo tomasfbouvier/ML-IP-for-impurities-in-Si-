@@ -1,0 +1,50 @@
+units metal
+timestep 0.001
+boundary p p p
+read_data lammps.data 
+
+
+timestep 0.001
+variable seed equal 11 #uloop 16 
+
+pair_style hybrid/overlay eam/fs tabgap nep#sw 
+pair_coeff * * eam/fs Sb-Si.eam.fs Si Sb 
+pair_coeff * * tabgap Sb-Si.tabgap Si Sb no yes 
+#pair_coeff * * sw Si.sw Si NULL
+pair_coeff * * nep /users/fernbouv/nep_potentials_db/nep_02_07.txt Si NULL
+
+
+region lower_half block $(xlo) $(2*xhi/3-0.1) INF INF INF INF 
+region upper_half block $(2*xhi/3-0.1) $(xhi) INF INF INF INF 
+
+group lower region lower_half
+group upper region upper_half
+
+thermo 10
+
+velocity all create 1000.0 $(4883949+v_seed*3) rot yes dist gaussian
+
+fix npt_non upper nvt temp 1200 1200 0.1
+
+fix npt_melt lower npt temp 2000.0 1200.0 0.1 iso 0.0 0.0 1.0
+
+dump            myDump all custom 200 dump.lammpstrj.$(part) element id x y z 
+dump_modify     myDump element Si Sb time yes 
+
+run 10000
+
+unfix npt_melt
+unfix npt_non
+
+fix NPT all npt temp 1200.0 1200.0 0.1 iso 0.0 0.0 1.0
+
+run 150000
+
+unfix NPT
+
+
+fix NPT all npt temp 1200.0 100.0 0.1 iso 0.0 0.0 1.0
+
+run 50000
+
+write_data final.$(part)

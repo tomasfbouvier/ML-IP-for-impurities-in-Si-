@@ -1,0 +1,31 @@
+units metal
+boundary p p p
+read_data restart.data 
+
+
+timestep 0.0015
+variable seed uloop 16 
+
+pair_style hybrid/overlay eam/fs tabgap nep#sw 
+pair_coeff * * eam/fs Sb-Si.eam.fs Si Sb 
+pair_coeff * * tabgap Sb-Si.tabgap Si Sb no yes 
+#pair_coeff * * sw Si.sw Si NULL
+pair_coeff * * nep nep.txt Si NULL
+
+
+fix NVT all npt temp 1000 300 0.1 iso 0.0 0.0 1.0
+
+thermo 100
+dump myDump all atom 1000 dump.lammpstrj
+dump_modify myDump append yes
+
+run 400000
+
+
+
+#fix 1 all box/relax iso 0.0 vmax 0.01
+#minimize 1.0e-6 1.0e-7 100000 1000000
+
+
+
+write_data final

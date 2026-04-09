@@ -1,0 +1,27 @@
+LAMMPS data file via write_data, version 11 Feb 2026, timestep = 1, units = metal
+
+1 atoms
+2 atom types
+
+-5.506420019603333 10.889880460203338 xlo xhi
+-5.506421691287557 10.889878770987558 ylo yhi
+-5.506419606502543 10.889880885902548 zlo zhi
+3.035508205402529e-06 -5.696588185605345e-06 2.1811463657594456e-06 xy xz yz
+
+Atom Type Labels
+
+1 Si
+2 Sb
+
+Masses
+
+1 28.085
+2 121.76
+
+Atoms # atomic
+
+1 2 0 -1.7763568394002505e-15 1.6771744788058945e-16 0 0 0
+
+Velocities
+
+1 0 0 0

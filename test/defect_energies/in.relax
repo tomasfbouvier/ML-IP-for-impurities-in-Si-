@@ -1,0 +1,22 @@
+units metal
+atom_style	atomic
+boundary	p p p
+
+read_data  ${input}	
+
+pair_style hybrid/overlay eam/fs tabgap nep
+pair_coeff * * eam/fs Sb-Si.eam.fs Si Sb 
+pair_coeff * * tabgap Sb-Si.tabgap Si Sb no yes 
+pair_coeff * * nep /users/fernbouv/nep_potentials_db/nep_02_07.txt Si NULL 
+
+min_style quickmin
+#fix 2 all box/relax aniso 0.0 
+
+
+thermo 10
+minimize 1.0e-7 1.0e-8 200 200
+
+write_data ${output}
+
+clear
+
