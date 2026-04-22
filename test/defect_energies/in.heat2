@@ -1,0 +1,54 @@
+units metal
+atom_style	atomic
+boundary	p p p
+
+read_data  ${input}	
+
+pair_style hybrid/overlay eam/fs tabgap nep
+pair_coeff * * eam/fs ../../${X}/${X}-Si.eam.fs Si ${X} 
+pair_coeff * * tabgap ../../${X}/${X}-Si.tabgap Si ${X} no yes 
+pair_coeff * * nep nep.txt Si NULL 
+
+
+timestep 0.001
+thermo 100
+
+min_style 	cg
+#min_modify dmax 0.01
+fix 1 all recenter INIT INIT INIT
+fix 2 all box/relax aniso 0.0 #vmax 0.1
+
+minimize 1.0e-7 1.0e-8 20000 20000
+
+unfix 2 
+dump            mydump all custom 100 dump.lammpstrj id type x y z ix iy iz
+dump_modify	mydump time yes
+#dump out all yaml 100 dump.ya id type x y z ix iy iz
+#dump_modify out time yes units yes thermo yes
+
+fix NPT all npt temp 400 400 0.1 iso 0.0 0.0 1.
+run 10000
+
+unfix NPT
+
+fix NVT all nvt temp 400 400 0.1 
+run 100000
+
+unfix NVT
+
+fix NPT all npt temp 400 0.1 0.1 iso 0.0 0.0 1.
+
+run 10000
+
+unfix NPT
+
+fix 2 all box/relax aniso 0.0 #vmax 0.1
+
+minimize 1.0e-7 1.0e-8 20000 20000
+
+
+
+write_data ${output}
+
+clear
+

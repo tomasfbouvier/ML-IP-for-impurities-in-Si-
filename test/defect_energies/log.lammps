@@ -1,0 +1,169 @@
+LAMMPS (30 Mar 2026)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread.
+  using 1 OpenMP thread(s) per MPI task
+units metal
+atom_style	atomic
+boundary	p p p
+
+read_data  ${input}
+read_data  dumbell3.data
+Reading data file ...
+  triclinic box = (0.034734766 -0.0026087833 0.0043511972) to (16.465396 16.427321 16.434071) with tilt (-0.039771871 0.035069302 -0.030828919)
+  3 by 2 by 1 MPI processor grid
+  reading atoms ...
+  217 atoms
+  reading velocities ...
+  217 velocities
+  read_data CPU = 0.005 seconds
+
+pair_style hybrid/overlay eam/fs tabgap nep
+pair_coeff * * eam/fs ../../${X}/${X}-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../Bi/${X}-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../Bi/Bi-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../Bi/Bi-Si.eam.fs Si Bi
+Reading eam/fs potential file ../../Bi/Bi-Si.eam.fs with DATE: 2026-04-17
+pair_coeff * * tabgap ../../${X}/${X}-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../Bi/${X}-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../Bi/Bi-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../Bi/Bi-Si.tabgap Si Bi no yes
+Reading tabgap potential file ../../Bi/Bi-Si.tabgap with DATE: 2026-04-17
+pair_coeff * * nep nep.txt Si NULL
+
+mass 1 28.0855
+mass 2 ${mass}
+mass 2 208.9804
+
+#min_style quickmin
+fix 2 all box/relax aniso 0.0
+
+
+thermo 10
+thermo_style custom step pe atoms
+thermo_modify	line one flush yes format 1 "ec %8lu" format float "%20.10g" lost warn
+
+minimize 1.0e-7 1.0e-8 200 200
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 3.5, bins = 5 5 5
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair eam/fs, perpetual, half/full from (2)
+      attributes: half, newton on, cut 7
+      pair build: halffull/newton/tri
+      stencil: none
+      bin: none
+  (2) pair tabgap, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+  (3) pair nep, perpetual, skip from (2)
+      attributes: full, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+WARNING: Energy due to 3 extra global DOFs will be included in minimizer energies
+ (src/min.cpp:222)
+Per MPI rank memory allocation (min/avg/max) = 5.846 | 5.846 | 5.846 Mbytes
+   Step         PotEng        Atoms   
+ec        0         -1170.719142        217 
+ec       10         -1170.734685        217 
+ec       20         -1170.753989        217 
+ec       30          -1170.77477        217 
+ec       40         -1170.795023        217 
+ec       50         -1170.814754        217 
+ec       60         -1170.833974        217 
+ec       70         -1170.852698        217 
+ec       80         -1170.870945        217 
+ec       90         -1170.888737        217 
+ec      100           -1170.9061        217 
+ec      110         -1170.923061        217 
+ec      120          -1170.93965        217 
+ec      130         -1170.955898        217 
+ec      140         -1170.971836        217 
+ec      150         -1170.987498        217 
+ec      160         -1171.002919        217 
+ec      170         -1171.018135        217 
+ec      180         -1171.033184        217 
+ec      190         -1171.048104        217 
+ec      200         -1171.062939        217 
+Loop time of 3.31472 on 6 procs for 200 steps with 217 atoms
+
+99.9% CPU use with 6 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = max force evaluations
+  Energy initial, next-to-last, final = 
+     -1170.71914161343  -1171.06129569934   -1171.0629385435
+  Force two-norm initial, final = 14.63918 2.0059091
+  Force max component initial, final = 8.3877585 0.6973451
+  Final line search alpha, max atom move = 0.00038455272 0.00026816595
+  Iterations, force evaluations = 200 200
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 2.0604     | 2.6279     | 3.2673     |  24.1 | 79.28
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.035468   | 0.67486    | 1.2427     |  47.5 | 20.36
+Output  | 0.00038784 | 0.00049862 | 0.0010399  |   0.0 |  0.02
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.01146    |            |       |  0.35
+
+Nlocal:        36.1667 ave          41 max          32 min
+Histogram: 1 0 1 1 1 0 0 1 0 1
+Nghost:            704 ave         709 max         697 min
+Histogram: 1 0 0 1 0 1 0 1 1 1
+Neighs:        1276.67 ave        1453 max        1095 min
+Histogram: 1 0 1 0 2 0 0 0 1 1
+FullNghs:      2553.33 ave        2884 max        2258 min
+Histogram: 1 0 1 1 1 0 0 1 0 1
+
+Total # of neighbors = 15320
+Ave neighs/atom = 70.599078
+Neighbor list builds = 0
+Dangerous builds = 0
+
+write_data ${output}
+write_data dumbell3.data.out
+System init for write_data ...
+run 0
+WARNING: No fixes with time integration, atoms won't move
+For more information see https://docs.lammps.org/err0028 (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 4.721 | 4.721 | 4.721 Mbytes
+   Step         PotEng        Atoms   
+ec      200         -1171.062939        217 
+Loop time of 5.57283e-06 on 6 procs for 0 steps with 217 atoms
+
+110.7% CPU use with 6 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 5.573e-06  |            |       |100.00
+
+Nlocal:        36.1667 ave          41 max          32 min
+Histogram: 1 0 0 3 0 0 0 1 0 1
+Nghost:            704 ave         709 max         697 min
+Histogram: 1 0 0 1 0 0 1 2 0 1
+Neighs:        1276.67 ave        1455 max        1097 min
+Histogram: 1 0 0 2 1 0 0 0 1 1
+FullNghs:      2553.33 ave        2884 max        2257 min
+Histogram: 1 0 0 3 0 0 0 1 0 1
+
+Total # of neighbors = 15320
+Ave neighs/atom = 70.599078
+Neighbor list builds = 0
+Dangerous builds = 0
+clear
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread.
+  using 1 OpenMP thread(s) per MPI task
+
+Total wall time: 0:00:04

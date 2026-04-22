@@ -1,0 +1,25 @@
+#!/bin/csh
+
+set i=0
+while ($i<95)
+   set i=`expr $i + 1`
+   set j=0
+   # if ($i == 28) then
+   #	# Restart hack
+   #	set j=52
+   # endif
+   while ($j<95)
+        set j=`expr $j + 1`
+	echo $i $j
+	if ($i > 54 && $j > 54) then
+	    if ( $i < $j) then
+		echo dimerpot_dmol97_auto $i $j
+		dimerpot_dmol97_auto $i $j >& out.dimerpot_dmol97_auto_${i}_${j}
+		cp savedparam.outmol.0.0020 savedparam.outmol.0.0020_${i}_${j}
+		gzip  out.dimerpot_dmol97_auto_${i}_${j} savedparam.outmol.0.0020_${i}_${j}
+	    endif
+	endif
+    end
+end
+
+

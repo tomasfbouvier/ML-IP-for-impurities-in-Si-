@@ -5,18 +5,24 @@ boundary	p p p
 read_data  ${input}	
 
 pair_style hybrid/overlay eam/fs tabgap nep
-pair_coeff * * eam/fs Sb-Si.eam.fs Si Sb 
-pair_coeff * * tabgap Sb-Si.tabgap Si Sb no yes 
-pair_coeff * * nep /users/fernbouv/nep_potentials_db/nep_02_07.txt Si NULL 
+pair_coeff * * eam/fs ../../${X}/${X}-Si.eam.fs Si ${X} 
+pair_coeff * * tabgap ../../${X}/${X}-Si.tabgap Si ${X} no yes 
+pair_coeff * * nep nep.txt Si NULL 
 
-min_style quickmin
-#fix 2 all box/relax aniso 0.0 
+mass 1 28.0855
+mass 2 ${mass}
+
+#min_style quickmin
+fix 2 all box/relax aniso 0.0 
 
 
 thermo 10
+thermo_style custom step pe atoms
+thermo_modify	line one flush yes format 1 "ec %8lu" format float "%20.10g" lost warn
+
 minimize 1.0e-7 1.0e-8 200 200
 
 write_data ${output}
-
+run 0
 clear
 

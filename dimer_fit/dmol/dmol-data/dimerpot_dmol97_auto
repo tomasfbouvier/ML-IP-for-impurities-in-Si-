@@ -1,0 +1,310 @@
+#!/bin/csh
+
+# Version of old script for Dmol97. Kai Nordlund, July 5, 2000
+
+# source /appl/chem/insight/cshrc
+
+
+
+use insight97
+
+set THISDIR=`pwd`
+set WORKDIR=/wrk/nordlund/
+if (! -d $WORKDIR) then
+   mkdir -p $WORKDIR
+endif
+
+unalias cp
+
+if ($2 == "") then
+   echo "Usage: dimerpot [options] Z1 Z2 [label [r1 [r2]... ]]"
+   echo
+   echo "If label is given, it is appended to the end of the energies file"
+   echo "If also r:s are given, the r values used are these"
+   echo "Options include:"
+   echo "       -a      Append output to old energies file"
+   echo "       -s r    Start r loop values from r."
+   echo "       -m x    Multiply the r step with x"
+   echo "       -t      Test: very few points included in calc."
+   echo "       -f      Few points included in calc."
+   echo "       -b      Assume BASIS file exists (not possible for Dmol97)"
+   echo "       -n      Use night queue n1 instead of day queue p1"
+   echo "       -r      Include scalar relativity in calculation"
+   echo
+   exit
+endif
+if (! -f defparam_dmol97_auto) then
+   echo "Taking standard defparam_dmol97_auto file"
+   cp $HOME/dmol/defparam_dmol97_auto .
+endif
+
+#
+#  Handle command line options and their parameters
+#
+echo Handling the $#argv command line params
+set i=1
+set append="false"
+set rstart="false"
+set firstr="0.0"
+set queue="p1"
+set mult="1"
+set test="false"
+set few="false"
+set basis="false"
+set relativity="false"
+nextopt:
+   if (a$argv[$i] == "a-a") then  
+      set append="true"
+      set i=`expr $i + 1`
+      echo "Append mode selected"
+   else if (a$argv[$i] == "a-n") then  
+      set queue="n1"
+      set i=`expr $i + 1`
+      echo "Night queue will be used"
+   else if (a$argv[$i] == "a-t") then  
+      set test="true"
+      set i=`expr $i + 1`
+      echo "Test option: only points 0.2 0.8 1.2 1.6 2.0 3.0 used"
+   else if (a$argv[$i] == "a-f") then  
+      set few="true"
+      set i=`expr $i + 1`
+      echo "Only a few points used"
+   else if (a$argv[$i] == "a-b") then  
+      set basis="true"
+      set i=`expr $i + 1`
+      echo "Assuming BASIS file exists"
+   else if (a$argv[$i] == "a-r") then  
+      set relativity="true"
+      set i=`expr $i + 1`
+      echo "Using Pseudopotential vpsr relativity correction"
+   else if (a$argv[$i] == "a-s") then  
+      set rstart="true"
+      set i=`expr $i + 1`
+      set firstr=$argv[$i]
+      set i=`expr $i + 1`
+      echo "Starting calculation from r =" $firstr
+   else if (a$argv[$i] == "a-m") then  
+      set i=`expr $i + 1`
+      set mult=$argv[$i]
+      set i=`expr $i + 1`
+      echo "Multiplying step with" $mult
+   else if (`echo a$argv[$i] | cut -c1,2` == "a-") then
+      echo "Unknown option" $argv[$i]
+      set i=`expr $i + 1`
+   endif
+   # echo Processing done: i = $i Next arg: $argv[$i]
+   echo
+if (`echo a$argv[$i] | cut -c1,2` == "a-") goto nextopt
+
+set Z1=$argv[$i]
+set i=`expr $i + 1`
+set Z2=$argv[$i]
+set label=""
+if ($#argv > $i) then
+   set i=`expr $i + 1`
+   set label=$argv[$i]
+endif
+set i=`expr $i + 1`
+set r=( $argv[$i-] )
+
+
+echo Calculating DMol potential between atoms Z= $Z1 and Z = $Z2
+set file=energies.$Z1.$Z2$label
+if (-f $file && $append != "true") then
+   echo Warning \! File already exists, moving it to $file.bkp
+   mv -f $file $file.bkp
+endif
+if (! -f $file) then
+   echo -n "" > $file
+endif
+
+echo 
+echo Writing output energies to $file and copy of params to lastparams_used$label
+echo
+cat defparam_dmol97 >! lastparams_used$label
+
+if ($test == "true") then
+   set dists="0.2 0.8 1.2 1.6 2.0 3.0"
+else if ($few == "true") then
+   set dists="0.1 0.3 0.5 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.8 2.0 3.0 5.0"
+   echo Only points $dists used
+else
+   awk 'BEGIN { r0='$firstr'; m='$mult'; if (r0==0.0) r0=0.002; for(i=r0;i<=10000.0;) { printf "%10.4f ",i; if (i<0.019999) i+=0.002*m; else if (i<0.199999) i+=0.02*m; else if (i<0.399999) i+=0.04*m; else if (i<0.999999) i+=0.05*m; else if (i<3.99999) i+=0.1*m; else if (i<9.99999) i+=1.0*m; else i*=10.0; } exit; }' >! rs
+   set dists=`cat rs`
+endif
+
+if ($#argv >= $i) then
+   echo "Using r = " $r
+   set dists=( $r )
+endif
+
+# Initial guess, may be corrected later
+set nbasis1=18
+set nbasis2=18
+set nbasistry=0
+
+#
+#  And now finally the loop over distances 
+#
+
+if ($basis != "true") then
+    rm -f $WORKDIR/param.basis
+endif
+
+foreach i ( $dists )
+
+    #
+    #  Basis file handling redone for insight970
+    #
+
+    if (-e inatom && $basis != "true") then
+        echo "Choosing datom input from inatom file in this directory"
+	cp -f inatom dimerpot_param.inatom
+
+	# rm -f $WORKDIR/BASIS
+	# cp -f inatom $WORKDIR/inatom
+	# cd $WORKDIR
+	#echo Running datom now 
+	#datom
+	#echo datom done
+	#mv basis BASIS
+	# cd $THISDIR
+    else
+       echo "Using inatom file from $HOME/datom/inatom_dmol97.good.auto"
+       echo Picking only bases for atoms with Z = $Z1 or $Z2.
+       rm -f dimerpot_param.inatom
+       cat $HOME/datom/inatom_dmol97.good.auto | awk 'NR==1 { print } { if ($2=="\!") { p=0; if ($1+0.0 == '$Z1' || $1+0.0 == '$Z2') p=1; } if (p==1) print } END { print " -1."; }' > dimerpot_param.inatom
+    endif
+
+   # Create coord file in Dmol97 format
+   
+   #rm -f dimerpot_param.car
+   #printf "\!car file created by dimerpot_dmol97 script\n" > dimerpot_param.car
+   #printf "PBC=OFF\n" >> dimerpot_param.car
+   #printf "\n" >> dimerpot_param.car
+   #echo "\!DATE   " `date` >> dimerpot_param.car
+
+   set name1=`awk '$1=='$Z1' { print $2 }' < $HOME/dmol/elements`
+   set name2=`awk '$1=='$Z2' { print $2 }' < $HOME/dmol/elements`
+   set name1u=`awk '$1=='$Z1' { print toupper($2) }' < $HOME/dmol/elements`
+   set name2u=`awk '$1=='$Z2' { print toupper($2) }' < $HOME/dmol/elements`
+   set name1l=`awk '$1=='$Z1' { print tolower($2) }' < $HOME/dmol/elements`
+   set name2l=`awk '$1=='$Z2' { print tolower($2) }' < $HOME/dmol/elements`
+   echo Using atom names $name1 $name2
+   
+   #echo $name1u 0.0 0.0 0.0 $name1l $name1 | awk '{ printf "%s1  %14.9f %14.9f %14.9f  XXX  ND     %s      %s  0.000\n",$1,$2,$3,$4,$5,$6 }' >> dimerpot_param.car
+   #echo $name2u $i 0.0 0.0 $name2l $name2 | awk '{ printf "%s1  %14.9f %14.9f %14.9f  XXX  ND     %s      %s  0.000\n",$1,$2,$3,$4,$5,$6 }' >> dimerpot_param.car
+    
+   #echo end >> dimerpot_param.car
+   #echo end >> dimerpot_param.car
+
+   # Create param.input file
+
+
+    newbasissize:
+
+   rm -f dimerpot_param.input
+   cp defparam_dmol97_auto dimerpot_param.input
+
+    if ($relativity == "true") then
+	echo "Pseudopotential     vpsr" >> dimerpot_param.input
+	echo "Using Pseudopotential     vpsr"
+    endif
+
+    echo "Basis                    USER"  >> dimerpot_param.input
+    echo $nbasis1 | awk '{ printf "%d ",$1; for(i=0;i<$1;i++) printf "0 "; printf "\n"; }' >> dimerpot_param.input
+    echo $nbasis2 | awk '{ printf "%d ",$1; for(i=0;i<$1;i++) printf "0 "; printf "\n"; }' >> dimerpot_param.input
+   
+
+   echo >> dimerpot_param.input
+   echo "Functionals              vwn" >> dimerpot_param.input
+   echo "Geometry                 USER angs" >> dimerpot_param.input
+   echo $i $Z1 | awk '{ printf "%18.8f %19.8f %19.8f %6d %4d\n",0,0,0,$2,0 }' >> dimerpot_param.input
+   echo $i $Z2 | awk '{ printf "%18.8f %19.8f %19.8f %6d %4d\n",$1,0,0,$2,0 }' >> dimerpot_param.input
+
+   echo ----------------------------------------------------------------------   
+   echo Starting batch for r = $i
+   echo ----------------------------------------------------------------------
+
+   rm -f param.*
+
+   cp -f dimerpot_param.input $WORKDIR/param.input
+   #cp -f dimerpot_param.car $WORKDIR/param.car
+   cp -f dimerpot_param.inatom $WORKDIR/param.inatom
+   cp -f dimerpot_param.inatom $WORKDIR/inatom
+
+   cd $WORKDIR
+   dmol param 
+   if (! -e param.outmol) then
+      echo
+      echo dimerpot: No outmol file, bad business
+      exit
+   endif 
+   cd $THISDIR
+   cp $WORKDIR/param.outmol .
+
+   set energy=`getenergy < param.outmol`
+
+   set testbad = `grep "ILEAVE exit status:           46" param.outmol | wc -l`
+   if ($testbad == 1) then
+      echo "Unsolvable basis size error"
+      goto theend
+   endif
+
+   set testbad = `grep "basis user input not consistent" param.outmol | wc -l`
+   if ($testbad == 1) then
+      echo "Basis size error"
+      set nbasistry=`expr $nbasistry + 1`
+      if ($nbasistry > 5) then
+	   echo "Too many basis try errors" $nbasistry
+	   goto theend
+      endif
+      set whichbasis = `grep "atomic basis no." param.outmol | awk '{ print $4+0.0 }'`
+      echo on basis $whichbasis
+      set newsize = `grep "functions specified in basis file" param.outmol | awk '{ print $1+0.0 }'`
+
+      if ($newsize > 19) then
+	echo Basis size too large $newsize
+	goto theend	
+      endif
+      echo size should have been $newsize
+      if ($whichbasis == 1) then
+	set nbasis1 = $newsize
+	echo set nbasis1 = $newsize
+      else if ($whichbasis == 2) then
+      	set nbasis2 = $newsize
+      	echo set nbasis2 = $newsize
+      else 
+        echo "Unknown basis atom:" $whichbasis
+        exit
+      endif
+      goto newbasissize
+   endif
+
+
+   echo ---------------------------------------------------------------------
+    printf "%s " $i   >> $file       
+    getenergy < param.outmol >> $file
+    printf "%s " $i 
+    getenergy < param.outmol
+
+   echo ---------------------------------------------------------------------
+   cp $WORKDIR/outatom savedparam.outatom$label.$i
+   cp -f param.outmol savedparam.outmol$label.$i
+end
+
+theend:
+
+cp $WORKDIR/outatom savedparam.outatom$label.$i
+cp -f param.outmol savedparam.outmol$label.$i
+
+
+
+
+
+
+
+
+
+
+

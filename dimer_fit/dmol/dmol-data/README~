@@ -1,0 +1,15 @@
+
+In cedar:
+
+ls -lad energies.* | grep -v bkp | awk '$5<4000 { print $9 }' | awk 'FS="." { print $2,$3 }'  > missing
+
+dimerpot_fromfile missing
+
+Alternative to see which ones seem to be done (plot in beam)
+
+ls -lad energies.* | grep -v bkp | grep -v test | awk '$5>4700 { print $9 }' | awk  'BEGIN { FS="."; } { print $2,$3,0,0 }' > done
+
+ls -lad energies.* | grep -v bkp | grep -v test | awk '$5<=4700 { print $9 }' | awk 'BEGIN { FS="."; } { print $2,$3,1,0 }' > tried_and_failed
+
+cat done tried_and_failed | dpc d 4 sd 576 576 x 0 96 y 0 96 z 0 1 1 2 3 4 _       
+

@@ -1,0 +1,29 @@
+#
+# First part of DMol parameter file obtained from old dmol input file
+# and automatic file upgrader conversion. Kai Nordlund Jul 5 2000.
+# Parameters should be suitable for reppot calculations.
+#
+Calculate                GRADIENT
+Spin                     restricted
+Electrostatic_Moments    off
+SCF_Iterations           400
+SCF_Restart              off
+Number_Bad_Steps         40
+Direct_SCF               off
+Smear                    0.1
+Charge                   0.000000
+SCF_Density_Convergence  0.000001
+Symmetry                 C1
+Integration_Grid         FINE
+Electric_Field           0.000000 0.000000 0.000000
+Mulliken_Analysis        3
+Hirshfeld_Analysis       1
+Plot                     off
+Basis                    USER
+18 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+18 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+
+Functionals              vwn
+Geometry                 USER angs
+        0.00000000          0.00000000          0.00000000     13    0
+     1000.00000000          0.00000000          0.00000000     53    0

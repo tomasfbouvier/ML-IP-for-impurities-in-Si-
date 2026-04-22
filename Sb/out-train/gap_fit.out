@@ -1,0 +1,245 @@
+libAtoms::Hello World: 2026-04-14 16:19:15
+libAtoms::Hello World: git version  https://github.com/libAtoms/QUIP.git,v0.9.14-37-g61fbbd7bb-dirty
+libAtoms::Hello World: QUIP_ARCH    linux_x86_64_gfortran_openmp
+libAtoms::Hello World: compiled on  Jan 20 2025 at 11:14:23
+libAtoms::Hello World: OpenMP parallelisation with 80 threads
+WARNING: libAtoms::Hello World: environment variable OMP_STACKSIZE not set explicitly. The default value - system and compiler dependent - may be too small for some applications.
+libAtoms::Hello World: Random Seed = 58755426
+libAtoms::Hello World: global verbosity = 0
+
+Calls to system_timer will do nothing by default
+
+
+================================ Input parameters ==============================
+
+config_file =
+atoms_filename = //MANDATORY//
+at_file = train.xyz
+gap = "distance_2b cutoff=5.0 covariance_type=ard_se delta=10.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_2b.out Z1=14 Z2=51 add_species=F : distance_2b cutoff=5.0 covariance_type=ard_se delta=10.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_2b.out Z1=51 Z2=51 add_species=F : eam_density cutoff=5.0 pair_function=FSgen order=3 rmin=0.0 covariance_type=ard_se delta=1.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_eam.out Z=51 add_species=F : angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=14 Z1=51 Z2=51 add_species=F : angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=14 Z2=51 add_species=F : angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=14 Z2=14 add_species=F : angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=14 Z1=51 Z2=14 add_species=F : angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=51 Z2=51 add_species=F"
+e0 = 0.0
+local_property0 = 0.0
+e0_offset = 0.0
+e0_method = isolated
+default_kernel_regularisation = //MANDATORY//
+default_sigma = "0.001 0.04 0.1 0.0"
+default_kernel_regularisation_local_property = 0.001
+default_local_property_sigma = 0.001
+sparse_jitter = 1e-8
+hessian_displacement = 1.0e-2
+hessian_delta = 1.0e-2
+baseline_param_filename = quip_params.xml
+core_param_file = pairpot_Si_Sb.xml
+baseline_ip_args =
+core_ip_args = "IP Glue"
+energy_parameter_name = energy
+local_property_parameter_name = local_property
+force_parameter_name = force
+virial_parameter_name = virial_fit
+stress_parameter_name = stress
+hessian_parameter_name = hessian
+config_type_parameter_name = config_type
+kernel_regularisation_parameter_name = sigma
+sigma_parameter_name = sigma
+force_mask_parameter_name = force_mask
+local_property_mask_parameter_name = local_property_mask
+parameter_name_prefix =
+config_type_kernel_regularisation =
+config_type_sigma = isolated_atom:0.0001:0.04:0.01:0.0:Sb_Si_dimer:0.01:4.0:1.0:0.0
+kernel_regularisation_is_per_atom = T
+sigma_per_atom = T
+do_copy_atoms_file = T
+do_copy_at_file = False
+sparse_separate_file = T
+sparse_use_actual_gpcov = F
+gap_file = gap_new.xml
+gp_file = gap_Sb-Si.xml
+verbosity = NORMAL
+rnd_seed = 999
+openmp_chunk_size = 0
+do_ip_timing = F
+template_file = template.xyz
+sparsify_only_no_fit = F
+dryrun = F
+condition_number_norm =
+linear_system_dump_file =
+mpi_blocksize_rows = 0
+mpi_blocksize_cols = 100
+mpi_print_all = F
+export_covariance = F
+
+========================================  ======================================
+
+
+============== Gaussian Approximation Potentials - Database fitting ============
+
+
+Initial parsing of command line arguments finished.
+Found 8 GAPs.
+Descriptors have been parsed
+XYZ file read
+Unchanged GAP: {distance_2b cutoff=5.0 covariance_type=ard_se delta=10.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_2b.out Z1=14 Z2=51 add_species=F}
+Unchanged GAP: { distance_2b cutoff=5.0 covariance_type=ard_se delta=10.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_2b.out Z1=51 Z2=51 add_species=F}
+Unchanged GAP: { eam_density cutoff=5.0 pair_function=FSgen order=3 rmin=0.0 covariance_type=ard_se delta=1.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_eam.out Z=51 add_species=F}
+Unchanged GAP: { angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=14 Z1=51 Z2=51 add_species=F}
+Unchanged GAP: { angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=14 Z2=51 add_species=F}
+Unchanged GAP: { angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=14 Z2=14 add_species=F}
+Unchanged GAP: { angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=14 Z1=51 Z2=14 add_species=F}
+Unchanged GAP: { angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=51 Z2=51 add_species=F}
+Sparse points and target errors per pre-defined types of configurations
+isolated_atom    0.10000000000000000E-003  0.40000000000000001E-001  0.10000000000000000E-001  0.00000000000000000E+000
+Sb_Si_dimer    0.10000000000000000E-001  0.40000000000000000E+001  0.10000000000000000E+001  0.00000000000000000E+000
+default    0.10000000000000000E-002  0.40000000000000001E-001  0.10000000000000001E+000  0.00000000000000000E+000
+Multispecies support added where requested
+
+===================== Report on number of descriptors found ====================
+
+---------------------------------------------------------------------
+Descriptor 1: distance_2b cutoff=5.0 covariance_type=ard_se delta=10.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_2b.out Z1=14 Z2=51 add_species=F
+Number of descriptors:                        32674
+Number of partial derivatives of descriptors: 196044
+---------------------------------------------------------------------
+Descriptor 2:  distance_2b cutoff=5.0 covariance_type=ard_se delta=10.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_2b.out Z1=51 Z2=51 add_species=F
+Number of descriptors:                        240
+Number of partial derivatives of descriptors: 1440
+---------------------------------------------------------------------
+Descriptor 3:  eam_density cutoff=5.0 pair_function=FSgen order=3 rmin=0.0 covariance_type=ard_se delta=1.0 theta_uniform=1.0 sparse_method=uniform n_sparse=20 print_sparse_index=sparse_indices_eam.out Z=51 add_species=F
+Number of descriptors:                        730
+Number of partial derivatives of descriptors: 51921
+---------------------------------------------------------------------
+Descriptor 4:  angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=14 Z1=51 Z2=51 add_species=F
+Number of descriptors:                        7146
+Number of partial derivatives of descriptors: 64314
+---------------------------------------------------------------------
+Descriptor 5:  angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=14 Z2=51 add_species=F
+Number of descriptors:                        4104
+Number of partial derivatives of descriptors: 36936
+---------------------------------------------------------------------
+Descriptor 6:  angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=14 Z2=14 add_species=F
+Number of descriptors:                        219224
+Number of partial derivatives of descriptors: 1973016
+---------------------------------------------------------------------
+Descriptor 7:  angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=14 Z1=51 Z2=14 add_species=F
+Number of descriptors:                        450196
+Number of partial derivatives of descriptors: 4051764
+---------------------------------------------------------------------
+Descriptor 8:  angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=51 Z2=51 add_species=F
+Number of descriptors:                        36
+Number of partial derivatives of descriptors: 324
+
+========================================  ======================================
+
+
+========================= Memory Estimate (per process) ========================
+
+Descriptors
+Descriptor 1 :: x 1 32674 memory 261 KB
+Descriptor 1 :: xPrime 1 196044 memory 1568 KB
+Descriptor 2 :: x 1 240 memory 1920  B
+Descriptor 2 :: xPrime 1 1440 memory 11 KB
+Descriptor 3 :: x 1 730 memory 5840  B
+Descriptor 3 :: xPrime 1 51921 memory 415 KB
+Descriptor 4 :: x 3 7146 memory 171 KB
+Descriptor 4 :: xPrime 3 64314 memory 1543 KB
+Descriptor 5 :: x 3 4104 memory 98 KB
+Descriptor 5 :: xPrime 3 36936 memory 886 KB
+Descriptor 6 :: x 3 219224 memory 5261 KB
+Descriptor 6 :: xPrime 3 1973016 memory 47 MB
+Descriptor 7 :: x 3 450196 memory 10 MB
+Descriptor 7 :: xPrime 3 4051764 memory 97 MB
+Descriptor 8 :: x 3 36 memory 864  B
+Descriptor 8 :: xPrime 3 324 memory 7776  B
+Subtotal 165 MB
+
+Covariances
+yY 3060 57581 memory 1409 MB * 2
+yy 3060 3060 memory 74 MB
+A 3060 60641 memory 1484 MB * 2
+Subtotal 5863 MB
+
+Peak1 1575 MB
+Peak2 5863 MB
+PEAK  5863 MB
+
+Free system memory  193 GB
+Total system memory 200 GB
+
+========================================  ======================================
+
+E0/atom =   0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000 -0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000 -0.58596009999999997E-001  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000  0.00000000000000000E+000
+
+========== Report on number of target properties found in training XYZ: ========
+
+Number of target energies (property name: energy) found: 647
+Number of target local_properties (property name: local_property) found: 0
+Number of target forces (property name: force) found: 56934
+Number of target virials (property name: virial_fit) found: 0
+Number of target Hessian eigenvalues (property name: hessian) found: 0
+
+================================= End of report ================================
+
+
+===== Report on per-configuration/per-atom sigma (error parameter) settings ====
+
+Number of per-configuration setting of energy_sigma found:     0
+Number of per-configuration setting of force_sigma found:      0
+Number of per-configuration setting of virial_sigma found:     0
+Number of per-configuration setting of hessian_sigma found:    0
+Number of per-configuration setting of local_propery_sigma found:0
+Number of per-atom setting of force_atom_sigma found:          0
+Number of per-component setting of force_component_sigma found:          0
+Number of per-component setting of virial_component_sigma found:          0
+
+================================= End of report ================================
+
+WARNING: gpCoordinates_sparsify: number of data points (9) less than the number of sparse points (600), number of sparse points changed to 9
+WARNING: gpCoordinates_sparsify: affected descriptor :  angle_3b cutoff=4.5 cutoff_transition_width=0.6 n_sparse=600 covariance_type=ard_se delta=0.1 theta_uniform=1.0 sparse_method=uniform print_sparse_index=sparse_indices_3b.out Z=51 Z1=51 Z2=51 add_species=F
+Cartesian coordinates transformed to descriptors
+Started sparse covariance matrix calculation of coordinate 1
+
+Finished sparse covariance matrix calculation of coordinate 1
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate1_sparse  done in .95569999999999844 cpu secs, .44267203799972776 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate1         done in .95587199999999939 cpu secs, .44283157099562231 wall clock secs.
+Started sparse covariance matrix calculation of coordinate 2
+
+Finished sparse covariance matrix calculation of coordinate 2
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate2_sparse  done in .64890400000000170 cpu secs, .43229364299622830 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate2         done in .64906300000000172 cpu secs, .43245383499015588 wall clock secs.
+Started sparse covariance matrix calculation of coordinate 3
+
+Finished sparse covariance matrix calculation of coordinate 3
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate3_sparse  done in .64720200000000006 cpu secs, .43294609700387809 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate3         done in .64730099999999879 cpu secs, .43304483799147420 wall clock secs.
+Started sparse covariance matrix calculation of coordinate 4
+Covariance matrix  17% |***                 |   2.2 /  13.1 sCovariance matrix  34% |******              |   4.4 /  13.1 sCovariance matrix  50% |**********          |   6.6 /  13.1 sCovariance matrix  67% |*************       |   8.8 /  13.2 sCovariance matrix  84% |****************    |  11.0 /  13.2 sCovariance matrix 100% |********************|  13.2 /  13.2 s
+Finished sparse covariance matrix calculation of coordinate 4
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate4_sparse  done in 21.461579999999998 cpu secs, 13.163735806010664 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate4         done in 21.461720000000000 cpu secs, 13.163875209997059 wall clock secs.
+Started sparse covariance matrix calculation of coordinate 5
+Covariance matrix  17% |***                 |   2.2 /  13.1 sCovariance matrix  34% |******              |   4.4 /  13.1 sCovariance matrix  50% |**********          |   6.6 /  13.1 sCovariance matrix  67% |*************       |   8.8 /  13.1 sCovariance matrix  84% |****************    |  11.0 /  13.1 sCovariance matrix 100% |********************|  13.1 /  13.1 s
+Finished sparse covariance matrix calculation of coordinate 5
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate5_sparse  done in 20.577840999999999 cpu secs, 13.140341510996222 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate5         done in 20.578161000000001 cpu secs, 13.141300994990161 wall clock secs.
+Started sparse covariance matrix calculation of coordinate 6
+Covariance matrix  17% |***                 |   2.4 /  14.4 sCovariance matrix  34% |******              |   4.8 /  14.4 sCovariance matrix  50% |**********          |   7.2 /  14.4 sCovariance matrix  67% |*************       |   9.6 /  14.5 sCovariance matrix  84% |****************    |  12.0 /  14.5 sCovariance matrix 100% |********************|  14.5 /  14.5 s
+Finished sparse covariance matrix calculation of coordinate 6
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate6_sparse  done in 85.710274999999996 cpu secs, 14.471805396999116 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate6         done in 85.710679999999996 cpu secs, 14.472210665000603 wall clock secs.
+Started sparse covariance matrix calculation of coordinate 7
+Covariance matrix  17% |***                 |   2.6 /  15.4 sCovariance matrix  34% |******              |   5.1 /  15.4 sCovariance matrix  50% |**********          |   7.8 /  15.5 sCovariance matrix  67% |*************       |  10.3 /  15.5 sCovariance matrix  84% |****************    |  13.0 /  15.6 sCovariance matrix 100% |********************|  15.6 /  15.6 s
+Finished sparse covariance matrix calculation of coordinate 7
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate7_sparse  done in 153.25705800000000 cpu secs, 15.556274561007740 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate7         done in 153.25751000000000 cpu secs, 15.556727005998255 wall clock secs.
+Started sparse covariance matrix calculation of coordinate 8
+
+Finished sparse covariance matrix calculation of coordinate 8
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate8_sparse  done in .28468200000003208 cpu secs, .19654351599456277 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_Coordinate8         done in .28478300000000445 cpu secs, .19664234099036548 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse_FunctionValues      done in .16400000004068715E-003 cpu secs, .16559899086132646E-003 wall clock secs.
+TIMER: gpFull_covarianceMatrix_sparse                     done in 283.78332300000000 cpu secs, 58.077687555996818 wall clock secs.
+TIMER: Build linear system                                done in 2.0666730000000371 cpu secs, .94758121900667902 wall clock secs.
+Using LAPACK to solve QR
+TIMER: Solve linear system                                done in 15.277524000000028 cpu secs, 15.307048211005167 wall clock secs.
+TIMER: GP sparsify                                        done in 301.18612800000000 cpu secs, 74.439697285008151 wall clock secs.
+
+libAtoms::Finalise: 2026-04-14 16:20:41
+libAtoms::Finalise: Bye-Bye!

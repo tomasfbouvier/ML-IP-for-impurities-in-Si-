@@ -1,0 +1,38 @@
+atom_modify     map array sort 0 0.0
+units		metal
+boundary	p p p
+
+variable u uloop ${num_replicas}
+
+read_data ${initial}
+
+pair_style hybrid/overlay eam/fs tabgap nep
+pair_coeff * * eam/fs ../../${X}/${X}-Si.eam.fs Si ${X} 
+pair_coeff * * tabgap ../../${X}/${X}-Si.tabgap Si ${X} no yes 
+pair_coeff * * nep nep.txt Si NULL 
+
+
+
+
+variable nrep equal 9
+variable p    equal part
+variable last equal ${nrep}-1
+
+
+#if "${p} == 0" then  "fix hold all setforce 0.0 0.0 0.0" "velocity all set 0 0 0"
+#if "${p} == ${last}" then "fix hold all setforce 0.0 0.0 0.0" " velocity all set 0 0 0"
+
+
+fix 1 all neb 1.0
+#fix 2 all momentum 1 linear 1 1 1 angular
+
+compute 1 all stress/atom NULL
+
+run 0 
+
+dump            1 all custom 100 ${dump_file}.$u id type x y z c_1[*]
+dump_modify     1 first no 
+
+min_style       quickmin
+
+neb 1e-8 0.0 40000 40000 100 final ${final} #terse

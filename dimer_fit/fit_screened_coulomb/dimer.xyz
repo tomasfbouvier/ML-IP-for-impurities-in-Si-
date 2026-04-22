@@ -1,0 +1,44 @@
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=88.7214 weight=0.1
+Si 0.0 0.0 0.0 -291.648 -0.0 0.0 14
+Si 0.9 0.0 0.0 291.648 0.0 -0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=69.3585986 weight=0.1
+Si 0.0 0.0 0.0 -241.2948 0.0 -0.0 14
+Si 0.96 0.0 0.0 241.2948 0.0 0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=58.1784 weight=0.1
+Si 0.0 0.0 0.0 -204.3846 0.0 -0.0 14
+Si 1.02 0.0 0.0 204.3846 -0.0 0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=47.3131 weight=0.1
+Si 0.0 0.0 0.0 -174.267307 -0.0 0.0 14
+Si 1.08 0.0 0.0 174.267307  0.0 -0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=37.08273243 weight=0.1
+Si 0.0 0.0 0.0 -147.38206 0.0 0.0 14
+Si 1.14 0.0 0.0 147.38206 0.0 -0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=29.03718378 weight=0.1
+Si 0.0 0.0 0.0 -123.344714 -0.0 0.0 14
+Si 1.2 0.0 0.0 123.344714 0.0 -0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=21.94055676 weight=0.1
+Si 0.0 0.0 0.0 -101.145013 0.0 -0.0 14
+Si 1.26 0.0 0.0 101.145013 -0.0 0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=16.32652973 weight=0.1
+Si 0.0 0.0 0.0 -80.63563586 0.0 -0.0 14
+Si 1.32 0.0 0.0 80.63563586  -0.0 0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=11.95879748 weight=0.1
+Si 0.0 0.0 0.0 -62.3358 0.0 -0.0 14
+Si 1.38 0.0 0.0 62.3358 -0.0 0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=8.6529 weight=0.1
+Si 0.0 0.0 0.0 -47.035 0.0 -0.0 14
+Si 1.44 0.0 0.0 47.035 -0.0 0.0 14
+2
+Lattice="30.0 0.0 0.0 0.0 30.0 0.0 0.0 0.0 30.0" Properties=species:S:1:pos:R:3:force:R:3:Z:I:1 pbc="T T T" config_type=dimer energy=6.12756 weight=0.1
+Si 0.0 0.0 0.0 -35.839 0.0 -0.0 14
+Si 1.5 0.0 0.0 35.839 -0.0 0.0 14

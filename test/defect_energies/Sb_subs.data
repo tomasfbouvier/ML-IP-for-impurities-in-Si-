@@ -8,16 +8,6 @@ LAMMPS data file via write_data, version 11 Feb 2026, timestep = 6, units = meta
 -5.511274574563902 10.894735853963905 zlo zhi
 3.0373616379865473e-06 -5.699961721448096e-06 2.1824380468856625e-06 xy xz yz
 
-Atom Type Labels
-
-1 Si
-2 Sb
-
-Masses
-
-1 28.085
-2 121.76
-
 Atoms # atomic
 
 2 1 -5.506332816906653 -2.774350953273226 -2.774249004490236 0 0 0

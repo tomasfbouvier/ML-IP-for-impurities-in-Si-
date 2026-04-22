@@ -1,0 +1,71 @@
+cat inatom_dmol97.good  | awk '{
+	if (NR==1) print; 
+	else {
+		if ($2=="!" || $1 == "-1.") {
+				# Start of new element
+				n++;
+				if (n>1) {
+					# Analyze previous element
+					hydro=0; 
+					for(i=0;i<=l;i++) {
+						split(line[i],a,",");
+						if (i==0) Z=a[1];
+						if (a[4]==-1 && a[5]==-1) hydro=1;
+					}
+					hydronote=" - old hydrogenic functions";
+					if (hydro==0) {
+						hydronote=" - automatically added hydrogenic functions";
+					}
+					# print previous element
+					for(i=0;i<=l;i++) {
+						printf "%s",line[i];
+						if (i==0) printf "%s",hydronote;
+						printf "\n";
+					}
+					if (hydro==0) {
+						if (Z<40) {
+						printf " %d.,4,0,-1,-1,\n",Z;
+						printf " 4,3,0,0,\n";
+						printf " 3,2,0,0,\n";
+						printf " 2,1,0,0,\n";
+						printf " 1,0,0,0,\n";
+						printf " %d.,4,0,-1,-1,\n",Z-1;
+						printf " 4,3,0,0,\n";
+						printf " 3,2,0,0,\n";
+						printf " 2,1,0,0,\n";
+						printf " 1,0,0,0,\n";
+						} else  if (Z < 55) {
+						printf " %d.,5,0,-1,-1,\n",Z;
+						printf " 5,4,0,0,\n";
+						printf " 4,3,0,0,\n";
+						printf " 3,2,0,0,\n";
+						printf " 2,1,0,0,\n";
+						printf " 1,0,0,0,\n";
+						printf " %d.,3,0,-1,-1,\n",Z-1;
+						printf " 3,2,0,0,\n";
+						printf " 2,1,0,0,\n";
+						printf " 1,0,0,0,\n";	
+						} else  {
+						printf " %d.,3,0,-1,-1,\n",Z-1;
+						printf " 3,2,0,0,\n";
+						printf " 2,1,0,0,\n";
+						printf " 1,0,0,0,\n";	
+						}
+
+					}
+
+
+				}
+				l=0;
+				# Store element
+				line[l]=$0;
+		}
+		else {
+			l++;
+			line[l]=$0;
+		}
+	}
+
+} END {
+	print " -1.";
+}'		
