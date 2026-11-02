@@ -1,0 +1,58 @@
+# ------------------------------------------------------------
+# Displace atom 109 on an (dx, dy) grid, compute PE, write to txt
+# ------------------------------------------------------------
+units           metal
+atom_style      atomic            # change if your data file needs another style
+boundary        p p p             # adjust to your system
+
+read_data       Sb_vac.data
+
+
+pair_style eam/fs
+pair_coeff * * P-Si.eam.fs Si ${X} 
+
+
+thermo_modify   norm no           # total energy, not per atom
+group           mov id 109
+
+# ---- scan parameters (Angstrom) ----
+variable        dmax   equal 0.8          # scan from -dmax to +dmax
+variable        n      equal 35           # points per direction
+variable        step   equal 2.0*${dmax}/(${n}-1)
+
+# ---- output file (header overwrites any old file) ----
+variable        outfile string energy_map.txt
+print           "# dx(A) dy(A) PE(eV)" file ${outfile} screen no
+
+# ---- reference (undisplaced) energy ----
+run             0
+variable        e0 equal $(pe)
+print           "# E0 = ${e0} eV" append ${outfile} screen no
+
+# ---- nested scan loop ----
+variable        i loop ${n}
+label           loop_i
+variable        dx equal -${dmax}+(${i}-1)*${step}
+
+variable        j loop ${n}
+label           loop_j
+variable        dy equal -${dmax}+(${j}-1)*${step}
+
+# move atom 109, evaluate energy
+displace_atoms  mov move ${dx} ${dy} 0.0 units box
+run             0 post no
+
+variable        e equal pe
+print           "${dx} ${dy} ${e}" append ${outfile} screen no
+
+# move atom 109 back to its original position
+displace_atoms  mov move $(-v_dx) $(-v_dy) 0.0 units box
+
+variable        e delete
+variable        dy delete
+next            j
+jump            SELF loop_j
+
+variable        dx delete
+next            i
+jump            SELF loop_i

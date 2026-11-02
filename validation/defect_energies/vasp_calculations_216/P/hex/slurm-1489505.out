@@ -1,0 +1,327 @@
+srun: error: plugin_load_from_file: dlopen(/usr/lib64/slurm/argos-spank.so): /usr/lib64/slurm/argos-spank.so: cannot open shared object file: No such file or directory
+srun: error: spank: /usr/lib64/slurm/argos-spank.so: Dlopen of plugin file failed
+ running  384 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on   96 cores,    4 groups
+ distr:  one band on    8 cores,   12 groups
+ vasp.6.6.1 17Jul2026 (build Aug 31 2026 16:55:33) complex                       
+ POSCAR found type information on POSCAR SiP 
+ POSCAR found :  2 types and     217 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for (Slater+PW92), standard interpolation
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     The requested file  could not be found or opened for reading            |
+|     k-point information, and the KSPACING tag was also not set.             |
+|     Automatic k-point generation is used as a fallback, which may lead      |
+|     to unwanted results.                                                    |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ INCAR ok, starting setup
+ POSCAR ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ WARNING: random wavefunctions but no delay for mixing, default for NELMDL
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.288895925407E+04    0.28890E+04   -0.39883E+05  1104   0.166E+03
+DAV:   2    -0.876774563394E+03   -0.37657E+04   -0.35804E+04  1308   0.211E+02
+DAV:   3    -0.117980883255E+04   -0.30303E+03   -0.29651E+03  1368   0.496E+01
+DAV:   4    -0.118790456300E+04   -0.80957E+01   -0.80402E+01  1320   0.980E+00
+DAV:   5    -0.118813535962E+04   -0.23080E+00   -0.23042E+00  1332   0.167E+00    0.533E+01
+RMM:   6    -0.117278583598E+04    0.15350E+02   -0.84922E+00  1104   0.253E+00    0.325E+01
+RMM:   7    -0.116601054377E+04    0.67753E+01   -0.22035E+01  1109   0.420E+00    0.199E+00
+RMM:   8    -0.116619273640E+04   -0.18219E+00   -0.22438E+00  1143   0.155E+00    0.935E-01
+RMM:   9    -0.116625920144E+04   -0.66465E-01   -0.51808E-01  1113   0.700E-01    0.977E-01
+RMM:  10    -0.116626679752E+04   -0.75961E-02   -0.77177E-02  1162   0.314E-01    0.110E+00
+RMM:  11    -0.116626899656E+04   -0.21990E-02   -0.29365E-02  1104   0.193E-01    0.135E+00
+RMM:  12    -0.116626680011E+04    0.21965E-02   -0.11196E-02  1124   0.115E-01    0.204E+00
+RMM:  13    -0.116626930750E+04   -0.25074E-02   -0.43339E-03  1104   0.760E-02    0.117E+00
+RMM:  14    -0.116627008120E+04   -0.77371E-03   -0.21987E-03  1104   0.452E-02    0.890E-01
+RMM:  15    -0.116627202433E+04   -0.19431E-02   -0.63076E-03  1275   0.543E-02    0.329E-01
+RMM:  16    -0.116627107111E+04    0.95322E-03   -0.98186E-03  1346   0.871E-02    0.151E+00
+RMM:  17    -0.116627011255E+04    0.95855E-03   -0.29396E-03  1156   0.439E-02    0.988E-01
+RMM:  18    -0.116627057943E+04   -0.46687E-03   -0.47159E-04   852   0.203E-02    0.779E-01
+RMM:  19    -0.116627107899E+04   -0.49956E-03   -0.21305E-03  1253   0.365E-02    0.161E-01
+RMM:  20    -0.116627110017E+04   -0.21182E-04   -0.10667E-04   669   0.122E-02
+   1 F= -.11662711E+04 E0= -.11662605E+04  d E =-.116627E+04
+ curvature:   0.00 expect dE= 0.000E+00 dE for cont linesearch  0.000E+00
+ trial: gam= 0.00000 g(F)=  0.360E+01 g(S)=  0.000E+00 ort = 0.000E+00 (trialstep = 0.100E+01)
+ search vector abs. value=  0.360E+01
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116723778605E+04   -0.96671E+00   -0.54592E+01  1236   0.764E+00    0.431E+00
+RMM:   2    -0.116757041624E+04   -0.33263E+00   -0.37572E+00  1104   0.225E+00    0.152E+00
+RMM:   3    -0.116759517439E+04   -0.24758E-01   -0.60784E-01  1110   0.104E+00    0.734E-01
+RMM:   4    -0.116760018315E+04   -0.50088E-02   -0.12789E-01  1215   0.463E-01    0.532E-01
+RMM:   5    -0.116760049235E+04   -0.30921E-03   -0.16185E-02  1124   0.166E-01    0.910E-02
+RMM:   6    -0.116760087831E+04   -0.38596E-03   -0.46146E-03  1153   0.828E-02    0.413E-02
+RMM:   7    -0.116760092912E+04   -0.50810E-04   -0.88042E-04  1035   0.349E-02
+   2 F= -.11676009E+04 E0= -.11675877E+04  d E =-.132983E+01
+ trial-energy change:   -1.329829  1 .order   -1.419814   -3.595431    0.755803
+ step:   0.8070(harm=  0.8263)  dis= 0.05536  next Energy= -1167.674521 (dE=-0.140E+01)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116766185597E+04   -0.60978E-01   -0.19940E+00  1260   0.145E+00    0.800E-01
+RMM:   2    -0.116767285696E+04   -0.11001E-01   -0.12667E-01  1104   0.421E-01    0.281E-01
+RMM:   3    -0.116767368316E+04   -0.82620E-03   -0.20244E-02  1110   0.192E-01    0.120E-01
+RMM:   4    -0.116767386199E+04   -0.17883E-03   -0.41787E-03  1180   0.842E-02    0.763E-02
+RMM:   5    -0.116767389402E+04   -0.32027E-04   -0.60320E-04   943   0.326E-02
+   3 F= -.11676739E+04 E0= -.11676607E+04  d E =-.140279E+01
+ curvature:  -0.41 expect dE=-0.691E-01 dE for cont linesearch -0.171E-05
+ trial: gam= 0.04601 g(F)=  0.169E+00 g(S)=  0.000E+00 ort = 0.389E-02 (trialstep = 0.961E+00)
+ search vector abs. value=  0.177E+00
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116777016627E+04   -0.96304E-01   -0.19281E+00  1212   0.146E+00    0.824E-01
+RMM:   2    -0.116778074884E+04   -0.10583E-01   -0.12506E-01  1104   0.419E-01    0.289E-01
+RMM:   3    -0.116778187233E+04   -0.11235E-02   -0.21421E-02  1110   0.192E-01    0.137E-01
+RMM:   4    -0.116778212848E+04   -0.25615E-03   -0.44691E-03  1183   0.859E-02    0.821E-02
+RMM:   5    -0.116778216372E+04   -0.35246E-04   -0.61913E-04   970   0.341E-02
+   4 F= -.11677822E+04 E0= -.11677690E+04  d E =-.108270E+00
+ trial-energy change:   -0.108270  1 .order   -0.108025   -0.162964   -0.053087
+ step:   1.4259(harm=  1.4259)  dis= 0.02307  next Energy= -1167.794744 (dE=-0.121E+00)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116779256961E+04   -0.10441E-01   -0.45073E-01  1260   0.706E-01    0.403E-01
+RMM:   2    -0.116779509950E+04   -0.25299E-02   -0.29621E-02  1104   0.205E-01    0.140E-01
+RMM:   3    -0.116779539327E+04   -0.29377E-03   -0.51704E-03  1112   0.947E-02    0.662E-02
+RMM:   4    -0.116779545625E+04   -0.62978E-04   -0.10506E-03  1133   0.423E-02    0.385E-02
+RMM:   5    -0.116779546676E+04   -0.10517E-04   -0.15945E-04   686   0.176E-02
+   5 F= -.11677955E+04 E0= -.11677826E+04  d E =-.121573E+00
+ curvature:  -0.75 expect dE=-0.328E-01 dE for cont linesearch -0.373E-05
+ trial: gam= 0.24835 g(F)=  0.440E-01 g(S)=  0.000E+00 ort = 0.942E-03 (trialstep = 0.105E+01)
+ search vector abs. value=  0.554E-01
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116782642966E+04   -0.30973E-01   -0.61749E-01  1164   0.837E-01    0.433E-01
+RMM:   2    -0.116782928771E+04   -0.28580E-02   -0.34343E-02  1104   0.226E-01    0.159E-01
+RMM:   3    -0.116782966141E+04   -0.37370E-03   -0.60160E-03  1122   0.103E-01    0.796E-02
+RMM:   4    -0.116782971491E+04   -0.53502E-04   -0.10806E-03  1135   0.458E-02    0.371E-02
+RMM:   5    -0.116782973066E+04   -0.15744E-04   -0.19734E-04   689   0.200E-02
+   6 F= -.11678297E+04 E0= -.11678167E+04  d E =-.342639E-01
+ trial-energy change:   -0.034264  1 .order   -0.034071   -0.046591   -0.021551
+ step:   1.9617(harm=  1.9617)  dis= 0.02102  next Energy= -1167.838812 (dE=-0.433E-01)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116783682224E+04   -0.71073E-02   -0.45863E-01  1212   0.721E-01    0.373E-01
+RMM:   2    -0.116783899458E+04   -0.21723E-02   -0.25841E-02  1104   0.196E-01    0.136E-01
+RMM:   3    -0.116783928332E+04   -0.28875E-03   -0.45206E-03  1121   0.902E-02    0.677E-02
+RMM:   4    -0.116783932780E+04   -0.44479E-04   -0.84859E-04  1113   0.403E-02
+   7 F= -.11678393E+04 E0= -.11678263E+04  d E =-.438610E-01
+ curvature:  -1.23 expect dE=-0.260E-01 dE for cont linesearch -0.105E-06
+ trial: gam= 0.49073 g(F)=  0.212E-01 g(S)=  0.000E+00 ort = 0.689E-04 (trialstep = 0.124E+01)
+ search vector abs. value=  0.346E-01
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116785513133E+04   -0.15848E-01   -0.49176E-01  1140   0.753E-01    0.362E-01
+RMM:   2    -0.116785721638E+04   -0.20851E-02   -0.24621E-02  1104   0.194E-01    0.140E-01
+RMM:   3    -0.116785752921E+04   -0.31282E-03   -0.45474E-03  1124   0.895E-02    0.729E-02
+RMM:   4    -0.116785757345E+04   -0.44249E-04   -0.82395E-04  1124   0.401E-02
+   8 F= -.11678576E+04 E0= -.11678444E+04  d E =-.182457E-01
+ trial-energy change:   -0.018246  1 .order   -0.017893   -0.026210   -0.009576
+ step:   1.9472(harm=  1.9472)  dis= 0.01187  next Energy= -1167.859978 (dE=-0.206E-01)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116785980413E+04   -0.22749E-02   -0.16335E-01  1248   0.433E-01    0.208E-01
+RMM:   2    -0.116786050687E+04   -0.70273E-03   -0.82035E-03  1104   0.113E-01    0.805E-02
+RMM:   3    -0.116786061865E+04   -0.11178E-03   -0.15397E-03  1125   0.522E-02    0.440E-02
+RMM:   4    -0.116786063385E+04   -0.15199E-04   -0.27532E-04   724   0.234E-02
+   9 F= -.11678606E+04 E0= -.11678474E+04  d E =-.213060E-01
+ curvature:  -1.59 expect dE=-0.139E-01 dE for cont linesearch -0.228E-05
+ trial: gam= 0.40928 g(F)=  0.877E-02 g(S)=  0.000E+00 ort = 0.223E-03 (trialstep = 0.138E+01)
+ search vector abs. value=  0.147E-01
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116786745760E+04   -0.68390E-02   -0.25870E-01  1152   0.545E-01    0.256E-01
+RMM:   2    -0.116786849343E+04   -0.10358E-02   -0.12402E-02  1104   0.139E-01    0.102E-01
+RMM:   3    -0.116786864014E+04   -0.14670E-03   -0.22892E-03  1125   0.641E-02    0.517E-02
+RMM:   4    -0.116786866230E+04   -0.22163E-04   -0.41315E-04   829   0.288E-02
+  10 F= -.11678687E+04 E0= -.11678553E+04  d E =-.802845E-02
+ trial-energy change:   -0.008028  1 .order   -0.007844   -0.012214   -0.003475
+ step:   1.9261(harm=  1.9261)  dis= 0.00694  next Energy= -1167.869169 (dE=-0.854E-02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116786924287E+04   -0.60274E-03   -0.41238E-02  1272   0.217E-01    0.101E-01
+RMM:   2    -0.116786941704E+04   -0.17416E-03   -0.20262E-03  1104   0.567E-02    0.407E-02
+RMM:   3    -0.116786944511E+04   -0.28078E-04   -0.38678E-04   815   0.262E-02
+  11 F= -.11678694E+04 E0= -.11678561E+04  d E =-.881127E-02
+ curvature:  -1.60 expect dE=-0.556E-02 dE for cont linesearch -0.368E-07
+ trial: gam= 0.40858 g(F)=  0.347E-02 g(S)=  0.000E+00 ort =-0.184E-04 (trialstep = 0.149E+01)
+ search vector abs. value=  0.591E-02
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787201400E+04   -0.25970E-02   -0.12370E-01  1140   0.374E-01    0.176E-01
+RMM:   2    -0.116787250260E+04   -0.48860E-03   -0.59162E-03  1104   0.957E-02    0.722E-02
+RMM:   3    -0.116787257747E+04   -0.74870E-04   -0.11330E-03  1132   0.443E-02    0.368E-02
+RMM:   4    -0.116787258783E+04   -0.10366E-04   -0.19426E-04   678   0.199E-02
+  12 F= -.11678726E+04 E0= -.11678591E+04  d E =-.314272E-02
+ trial-energy change:   -0.003143  1 .order   -0.003016   -0.005147   -0.000885
+ step:   1.7965(harm=  1.7965)  dis= 0.00506  next Energy= -1167.872553 (dE=-0.311E-02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787267696E+04   -0.99493E-04   -0.54568E-03  1308   0.783E-02    0.360E-02
+RMM:   2    -0.116787270117E+04   -0.24205E-04   -0.28003E-04   697   0.209E-02
+  13 F= -.11678727E+04 E0= -.11678592E+04  d E =-.325605E-02
+ curvature:  -1.54 expect dE=-0.281E-02 dE for cont linesearch -0.149E-07
+ trial: gam= 0.52879 g(F)=  0.183E-02 g(S)=  0.000E+00 ort =-0.759E-05 (trialstep = 0.155E+01)
+ search vector abs. value=  0.347E-02
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787430728E+04   -0.16303E-02   -0.74525E-02  1140   0.291E-01    0.132E-01
+RMM:   2    -0.116787457640E+04   -0.26911E-03   -0.32397E-03  1104   0.719E-02    0.579E-02
+RMM:   3    -0.116787461734E+04   -0.40940E-04   -0.62382E-04  1021   0.333E-02
+  14 F= -.11678746E+04 E0= -.11678611E+04  d E =-.191617E-02
+ trial-energy change:   -0.001916  1 .order   -0.001787   -0.002826   -0.000747
+ step:   2.1065(harm=  2.1065)  dis= 0.00384  next Energy= -1167.874622 (dE=-0.192E-02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787479351E+04   -0.21711E-03   -0.99481E-03  1260   0.105E-01    0.444E-02
+RMM:   2    -0.116787483150E+04   -0.37991E-04   -0.44165E-04   898   0.273E-02
+  15 F= -.11678748E+04 E0= -.11678613E+04  d E =-.213033E-02
+ curvature:  -2.01 expect dE=-0.190E-02 dE for cont linesearch -0.313E-05
+ trial: gam= 0.45858 g(F)=  0.946E-03 g(S)=  0.000E+00 ort = 0.736E-04 (trialstep = 0.166E+01)
+ search vector abs. value=  0.174E-02
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787561205E+04   -0.81854E-03   -0.45077E-02  1152   0.226E-01    0.110E-01
+RMM:   2    -0.116787578421E+04   -0.17216E-03   -0.20710E-03  1104   0.574E-02    0.475E-02
+RMM:   3    -0.116787580812E+04   -0.23909E-04   -0.39522E-04   820   0.266E-02
+  16 F= -.11678758E+04 E0= -.11678622E+04  d E =-.976625E-03
+ trial-energy change:   -0.000977  1 .order   -0.000890   -0.001628   -0.000151
+ step:   1.8309(harm=  1.8309)  dis= 0.00243  next Energy= -1167.875729 (dE=-0.897E-03)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787583105E+04   -0.46837E-04   -0.58509E-04  1236   0.258E-02    0.125E-02
+RMM:   2    -0.116787583445E+04   -0.34042E-05   -0.40339E-05   600   0.825E-03
+  17 F= -.11678758E+04 E0= -.11678623E+04  d E =-.100296E-02
+ curvature:  -1.63 expect dE=-0.740E-03 dE for cont linesearch -0.443E-05
+ trial: gam= 0.47733 g(F)=  0.454E-03 g(S)=  0.000E+00 ort = 0.688E-04 (trialstep = 0.169E+01)
+ search vector abs. value=  0.917E-03
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787625135E+04   -0.42030E-03   -0.23469E-02  1128   0.164E-01    0.716E-02
+RMM:   2    -0.116787633424E+04   -0.82893E-04   -0.98479E-04  1104   0.396E-02
+  18 F= -.11678763E+04 E0= -.11678628E+04  d E =-.499786E-03
+ trial-energy change:   -0.000500  1 .order   -0.000456   -0.000825   -0.000087
+ step:   1.8940(harm=  1.8940)  dis= 0.00178  next Energy= -1167.876296 (dE=-0.461E-03)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116787637072E+04   -0.11937E-03   -0.62482E-04  1296   0.266E-02    0.223E-02
+RMM:   2    -0.116787636999E+04    0.72867E-06   -0.29352E-05   581   0.658E-03
+  19 F= -.11678764E+04 E0= -.11678628E+04  d E =-.535536E-03
+ curvature:  -1.78 expect dE=-0.470E-03 dE for cont linesearch -0.152E-04
+ trial: gam= 0.46332 g(F)=  0.263E-03 g(S)=  0.000E+00 ort = 0.884E-04 (trialstep = 0.173E+01)
+ search vector abs. value=  0.542E-03
+ reached required accuracy - stopping structural energy minimisation
+ writing wavefunctions
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL

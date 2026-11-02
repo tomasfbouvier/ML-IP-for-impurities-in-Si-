@@ -1,0 +1,6 @@
+--------------------------------------------------------------------------------
+Python-data/3.12-14.10, Python libraries for data analytics and machine learning
+https://docs.csc.fi/apps/python-data
+--------------------------------------------------------------------------------
+/scratch/project_2019925/validation_ab_initio_md/path_P/run_vasp_db_loop.py:152: FutureWarning: Please use atoms.calc = calc
+  atoms.set_calculator(calc)

@@ -1,0 +1,53 @@
+srun: error: plugin_load_from_file: dlopen(/usr/lib64/slurm/argos-spank.so): /usr/lib64/slurm/argos-spank.so: cannot open shared object file: No such file or directory
+srun: error: spank: /usr/lib64/slurm/argos-spank.so: Dlopen of plugin file failed
+ running  384 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on   96 cores,    4 groups
+ distr:  one band on    8 cores,   12 groups
+HDF5-DIAG: Error detected in HDF5 (1.14.6) MPI-process 0:
+  #000: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5F.c line 653 in H5Fcreate(): unable to synchronously create file
+    major: File accessibility
+    minor: Unable to create file
+  #001: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5F.c line 608 in H5F__create_api_common(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #002: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5VLcallback.c line 3445 in H5VL_file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #003: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5VLcallback.c line 3411 in H5VL__file_create(): file create failed
+    major: Virtual Object Layer
+    minor: Unable to create file
+  #004: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5VLnative_file.c line 94 in H5VL__native_file_create(): unable to create file
+    major: File accessibility
+    minor: Unable to open file
+  #005: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5Fint.c line 1963 in H5F_open(): unable to lock the file
+    major: File accessibility
+    minor: Unable to lock file
+  #006: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5FD.c line 2402 in H5FD_lock(): driver lock request failed
+    major: Virtual File Layer
+    minor: Unable to lock file
+  #007: /appltest/soft/spack/core/v2026_03/core_cache_dir/stage/r_inst_core/spack-stage-hdf5-1.14.6-2d66cwsrmyxe7e7if3mgh6qcpb5zc3cg/spack-src/src/H5FDsec2.c line 956 in H5FD__sec2_lock(): unable to lock file, errno = 11, error message = 'Resource temporarily unavailable'
+    major: Virtual File Layer
+    minor: Unable to lock file
+ -----------------------------------------------------------------------------
+|                     _     ____    _    _    _____     _                     |
+|                    | |   |  _ \  | |  | |  / ____|   | |                    |
+|                    | |   | |_) | | |  | | | |  __    | |                    |
+|                    |_|   |  _ <  | |  | | | | |_ |   |_|                    |
+|                     _    | |_) | | |__| | | |__| |    _                     |
+|                    (_)   |____/   \____/   \_____|   (_)                    |
+|                                                                             |
+|     internal error in: vhdf5.F  at line: 253                                |
+|                                                                             |
+|     HDF5 call in vhdf5.F:253 produced error: -1                             |
+|                                                                             |
+|     If you are not a developer, you should not encounter this problem.      |
+|     Please submit a bug report.                                             |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-09-24T06:35:41.345] error: *** STEP 1489581.0 ON rc6109 CANCELLED AT 2026-09-24T06:35:41 DUE to SIGNAL Killed ***
+[2026-09-24T06:35:43.059] error:  mpi/pmix_v5: _errhandler: rc6109 [0]: pmixp_client_v2.c:230: Error handler invoked: status = -61, source = [slurm.pmix.1489581.0:0]
+srun: error: rc6109: task 0: Exited with exit code 1
+srun: Terminating StepId=1489581.0
+srun: error: rc6109: tasks 1-383: Killed

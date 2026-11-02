@@ -1,0 +1,212 @@
+import os
+import subprocess
+from ase.data import atomic_masses, atomic_numbers
+from adapt_data import adapt_data
+from parse_energy_barriers import parse_barrier
+import matplotlib as mpl
+
+
+def relax(impurity, file_in, file_out):
+
+    mass = atomic_masses[atomic_numbers[impurity]]
+    subprocess.run(f"mpirun -np 6 lmp -in in.relax2 -v input {file_in} -v X {impurity} -v mass {mass} -v output {file_in}.out",
+                   shell=True,  stdout=subprocess.DEVNULL)
+    
+    subprocess.run(f"mpirun -np 6 lmp -in in.relax2 -v input {file_out} -v X {impurity} -v mass {mass} -v output {file_out}.out",
+                   shell=True,  stdout=subprocess.DEVNULL)
+        
+    adapt_data(f"{file_out}.out")    
+
+    return
+
+
+def neb(impurity, initial, final, npart=5):
+    
+    mass = atomic_masses[atomic_numbers[impurity]]
+    subprocess.run(f"mpirun -np {npart} --oversubscribe lmp -partition {npart}x1 -v dump_file kkk -v num_replicas {npart} -in in.neb -v X {impurity} -v mass {mass} -v initial {initial} -v final {final} > log.neb",
+                   shell=True,  stdout=subprocess.DEVNULL)
+        
+    x,y = parse_barrier(plot = False)
+    
+    return x, y
+
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import make_interp_spline
+
+
+plt.style.use("/home/fernbouv/Desktop/mystyle.lorenzo.mplstyle")
+"""
+if __name__=="__main__":
+    initial = "0NN.data"
+    final = "1NN.data"
+    relax("Bi", initial, final)
+    x, y = neb("Bi", f"{initial}.out", "final.data", 7)
+"""
+if __name__ == "__main__":
+
+    states = ["0NN.data", "1NN.data", "2NN.data", "3NN.data"]
+    
+
+
+    impurities = ["P", "Sb", "Bi"]
+
+    plt.figure()
+    markers = ["s", "D", "^"]
+    markers = ["s-", "D-", "^-"]
+    colors = ["red", "green", "blue"]
+    for i in range(len(impurities)):
+
+        all_x = []
+        all_y = []
+
+        x_offset = 0.0
+        impurity = impurities[i]
+        marker = markers[i]
+        color = colors[i]
+        for j in range(1, len(states)):
+            initial = states[j - 1]
+            final = states[j]
+            
+            initial2 = initial.removesuffix(".data")
+            final2 = final.removesuffix(".data")
+
+            fname = f"{impurity}_{initial2}_{final2}.txt"
+
+            # ---- Skip calculation if file exists ----
+            if not os.path.exists(fname):
+                relax(impurity, initial, final)
+                
+                if "0NN" in initial2: n = 11
+                else: n=11
+                x, y = neb(impurity, f"{initial}.out", "final.data", npart = n)
+
+                with open(fname, "w") as f:
+                    for xi, yi in zip(x, y):
+                        f.write(f"{xi}, {yi}\n")
+            else:
+                # ---- Read existing data ----
+                x, y = [], []
+                with open(fname, "r") as f:
+                    for line in f:
+                        xi, yi = map(float, line.strip().split(","))
+                        x.append(xi)
+                        y.append(yi)
+
+            x = np.array(x)
+            y = np.array(y)
+
+            # ---- Shift x so segments connect ----
+            x_shifted = x + x_offset
+
+            # update offset for next segment
+            x_offset = x_shifted[-1]
+
+            all_x.append(x_shifted)
+            all_y.append(y)
+
+        # ---- Concatenate all segments ----
+        all_x = np.concatenate(all_x)
+        all_y = np.concatenate(all_y)
+        
+        all_x, unique_indices = np.unique(all_x, return_index=True)
+        all_y = all_y[unique_indices]
+        all_y[:]-=min(all_y)
+        
+        # ---- Cubic spline ----
+        cs = make_interp_spline(all_x, all_y, 1)
+        x_fine = np.linspace(all_x.min(), all_x.max(), 500)
+        y_fine = cs(x_fine)
+        
+        print(impurity)
+        #all_x = [0.,   0.25, 0.5,  0.75, 1.,   1.25, 1.5,  1.75, 2.  ]
+        print(all_x, all_y)
+        #plt.plot(all_x, all_y, marker, label=f"{impurity}", c = color)
+        plt.plot(x_fine, y_fine, "-", c = color)
+
+    
+
+
+    plt.xticks(
+    [0.0, 1.0, 1.5, 2.0],
+    ["A", "A'", "B", "C"])
+    plt.xlabel("Reaction coordinate")
+    plt.ylabel("Energy (eV)")
+    
+    """
+    ##############SPECIAL CASE: Si self vacancy diffusion#####################
+
+    Si = np.array([-1162.6083, -1162.4903,  -1162.4036, -1162.49, -1162.6083, -1162.4036, -1162.6083, -1162.4036, -1162.6083])
+    
+    Si-= Si[0]
+
+    x = np.arange(len(Si))/4
+    plt.plot(x,Si, "o",c="orange", label="Si")
+    plt.plot(x,Si, "-",c="orange")
+    ##############THEORETICAL VALUES###############
+    P = np.array([0.0, 0.70833, 1.345898, 0.700, 0.0 , 0.8355222340301367, 0.7053983328316675, 0.8473717834524023, 0.8])
+    print(x)
+    #x = np.arange(len(P))/5
+    plt.plot(x,P, "s--",c="black")
+    
+
+    
+    Sb = np.array([0.0, 0.154, 0.249, 0.150, 0.0, 0.944, 0.903, 1.083, 0.992])
+
+    plt.plot(x,Sb, "D--",c="black")
+    
+    Si = np.array([0.0,0.2, 0.3, 0.2, 0.0, 0.3,0.0, 0.3, 0.0])
+    plt.plot(x,Si, "o",c="black")
+    plt.plot(x,Si, "--",c="black", label = "DFT")
+    ##############END OF THEORETICAL VALUES ##############################
+    """
+
+    plt.ylim(0, 2.0)
+    plt.legend(ncols=3, labelspacing=0.1, columnspacing=0.5, handletextpad=0.1)
+    plt.savefig("energy_barriers.pdf")
+    plt.show()
+
+
+"""
+if __name__=="__main__":
+    
+
+    states = ["0NN", "1NN", "3NN"]
+    
+    for i in range(1,2):
+        
+        initial = states[i-1]
+        final = states[i]
+        impurity = "P"    
+        relax(impurity, initial, final)
+
+        x, y = neb(impurity, f"{initial}.out", "final.data")
+        
+        initial = initial.removesuffix(".data").removesuffix(".out")
+        final = final.removesuffix(".data").removesuffix(".out")
+        with open(f"{impurity}_{initial}_{final}.txt", "w") as f:
+            for xi, yi in zip(x, y):
+                f.write(f"{xi}, {yi}\n")
+
+            f.close()
+    
+    plt.figure()
+""" 
+
+
+    #for impurity in ["P", "Sb", "Bi"]:
+    #    print(impurity, calculate_formation_energies(impurity))
+
+
+
+
+
+
+
+
+
+
+
+
+

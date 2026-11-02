@@ -1,0 +1,28 @@
+units metal
+timestep 0.001
+boundary p p p
+read_data lammps.data 
+
+
+timestep 0.001
+variable seed equal 11 #uloop 16 
+
+pair_style hybrid/overlay eam/fs tabgap nep
+pair_coeff * * eam/fs Bi-Si.eam.fs Si Bi 
+pair_coeff * * tabgap Bi-Si.tabgap Si Bi no yes 
+pair_coeff * * nep nep.txt Si NULL 
+
+thermo 10
+
+dump            myDump all custom 50 dump.lammpstrj.$(part) element id x y z 
+dump_modify     myDump element Si Sb time yes 
+
+min_style cg
+
+minimize 0.0 1.0e-8 1000 100000
+
+
+fix 1 all box/relax iso 0.0 vmax 0.001
+minimize 0.0 1.0e-8 1000 100000
+
+write_data final

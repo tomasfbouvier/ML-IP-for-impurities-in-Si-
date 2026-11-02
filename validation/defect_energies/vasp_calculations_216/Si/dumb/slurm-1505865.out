@@ -1,0 +1,157 @@
+ running  384 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on   96 cores,    4 groups
+ distr:  one band on    8 cores,   12 groups
+ vasp.6.6.1 17Jul2026 (build Aug 31 2026 16:55:33) complex                       
+ POSCAR found type information on POSCAR Si
+ POSCAR found :  1 types and     218 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for (Slater+PW92), standard interpolation
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     The distance between some ions is very small. Please check the          |
+|     nearest-neighbor list in the OUTCAR file.                               |
+|     I HOPE YOU KNOW WHAT YOU ARE DOING!                                     |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     The requested file  could not be found or opened for reading            |
+|     k-point information, and the KSPACING tag was also not set.             |
+|     Automatic k-point generation is used as a fallback, which may lead      |
+|     to unwanted results.                                                    |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ INCAR ok, starting setup
+ POSCAR ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ WAVECAR not read
+ WARNING: random wavefunctions but no delay for mixing, default for NELMDL
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.295475663066E+04    0.29548E+04   -0.40120E+05  1104   0.167E+03
+DAV:   2    -0.849609959140E+03   -0.38044E+04   -0.36202E+04  1308   0.211E+02
+DAV:   3    -0.115910248866E+04   -0.30949E+03   -0.30280E+03  1380   0.502E+01
+DAV:   4    -0.116752383553E+04   -0.84213E+01   -0.83600E+01  1332   0.999E+00
+DAV:   5    -0.116779056035E+04   -0.26672E+00   -0.26635E+00  1332   0.177E+00    0.552E+01
+RMM:   6    -0.114683984071E+04    0.20951E+02   -0.26063E+01  1106   0.349E+00    0.329E+01
+RMM:   7    -0.114260519395E+04    0.42346E+01   -0.17982E+01  1108   0.346E+00    0.145E+01
+RMM:   8    -0.113893319379E+04    0.36720E+01   -0.79344E+00  1114   0.224E+00    0.241E+00
+RMM:   9    -0.113900541588E+04   -0.72222E-01   -0.13533E+00  1148   0.107E+00    0.144E+00
+RMM:  10    -0.113901920227E+04   -0.13786E-01   -0.26537E-01  1138   0.531E-01    0.109E+00
+RMM:  11    -0.113902973197E+04   -0.10530E-01   -0.83215E-02  1111   0.291E-01    0.490E-01
+RMM:  12    -0.113903600578E+04   -0.62738E-02   -0.22116E-02  1170   0.167E-01    0.284E-01
+RMM:  13    -0.113903744698E+04   -0.14412E-02   -0.56293E-03  1146   0.833E-02    0.107E-01
+RMM:  14    -0.113903736424E+04    0.82731E-04   -0.14957E-03  1097   0.420E-02    0.456E-02
+RMM:  15    -0.113903742416E+04   -0.59913E-04   -0.45541E-04   839   0.228E-02
+   1 F= -.11390374E+04 E0= -.11390287E+04  d E =-.113904E+04
+ curvature:   0.00 expect dE= 0.000E+00 dE for cont linesearch  0.000E+00
+ trial: gam= 0.00000 g(F)=  0.477E+03 g(S)=  0.000E+00 ort = 0.000E+00 (trialstep = 0.100E+01)
+ search vector abs. value=  0.477E+03
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.114510994059E+04   -0.60726E+01   -0.13836E+03  1296   0.351E+01    0.221E+01
+RMM:   2    -0.115515579707E+04   -0.10046E+02   -0.17272E+02  1107   0.121E+01    0.688E+00
+RMM:   3    -0.115881545214E+04   -0.36597E+01   -0.34753E+01  1128   0.504E+00    0.676E+00
+RMM:   4    -0.115848492241E+04    0.33053E+00   -0.68991E+00  1172   0.232E+00    0.550E+00
+RMM:   5    -0.115855494830E+04   -0.70026E-01   -0.17276E+00  1290   0.117E+00    0.452E+00
+RMM:   6    -0.115862816263E+04   -0.73214E-01   -0.30403E-01  1147   0.533E-01    0.320E+00
+RMM:   7    -0.115868343673E+04   -0.55274E-01   -0.28547E-01  1121   0.434E-01    0.150E+00
+RMM:   8    -0.115873022097E+04   -0.46784E-01   -0.19574E-01  1151   0.340E-01    0.195E+00
+RMM:   9    -0.115867161182E+04    0.58609E-01   -0.39134E-02  1116   0.173E-01    0.111E+00
+RMM:  10    -0.115866301968E+04    0.85921E-02   -0.20189E-02  1119   0.107E-01    0.574E-01
+RMM:  11    -0.115866061209E+04    0.24076E-02   -0.15578E-02  1145   0.801E-02    0.124E-01
+RMM:  12    -0.115866088236E+04   -0.27027E-03   -0.18015E-03  1061   0.418E-02    0.648E-02
+RMM:  13    -0.115866101827E+04   -0.13591E-03   -0.64181E-04   917   0.231E-02    0.299E-02
+RMM:  14    -0.115866106862E+04   -0.50350E-04   -0.14593E-04   689   0.120E-02
+   2 F= -.11586611E+04 E0= -.11586387E+04  d E =-.196236E+02
+ trial-energy change:  -19.623644  1 .order -237.472716 -477.244267    2.298835
+ step:   0.9952(harm=  0.9952)  dis= 1.70249  next Energy= -1376.515650 (dE=-0.237E+03)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.115867235842E+04   -0.11340E-01   -0.13580E-01  1236   0.363E-01    0.240E-01
+RMM:   2    -0.115867513273E+04   -0.27743E-02   -0.10605E-02  1101   0.950E-02    0.367E-01
+RMM:   3    -0.115867236312E+04    0.27696E-02   -0.27014E-03  1068   0.492E-02    0.901E-02
+RMM:   4    -0.115867222987E+04    0.13325E-03   -0.59226E-04   836   0.237E-02    0.443E-02
+RMM:   5    -0.115867221153E+04    0.18337E-04   -0.10472E-04   675   0.108E-02
+   3 F= -.11586722E+04 E0= -.11586501E+04  d E =-.196348E+02
+ curvature:  -0.50 expect dE=-0.577E+01 dE for cont linesearch -0.573E-02
+ ZBRENT: interpolating
+ opt :   0.9753  next Energy= -1158.677911 (dE=-0.196E+02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.115871940542E+04   -0.47176E-01   -0.22731E+00  1224   0.149E+00    0.853E-01
+RMM:   2    -0.115872725810E+04   -0.78527E-02   -0.14081E-01  1104   0.372E-01    0.629E-01
+RMM:   3    -0.115872488448E+04    0.23736E-02   -0.34247E-02  1112   0.181E-01    0.372E-01
+RMM:   4    -0.115872119296E+04    0.36915E-02   -0.65239E-03  1144   0.873E-02    0.206E-01
+RMM:   5    -0.115872098892E+04    0.20404E-03   -0.17442E-03  1063   0.413E-02    0.171E-01
+RMM:   6    -0.115872070270E+04    0.28622E-03   -0.51520E-04   870   0.217E-02    0.935E-02
+RMM:   7    -0.115872067803E+04    0.24669E-04   -0.37719E-04   797   0.163E-02
+   4 F= -.11587207E+04 E0= -.11587006E+04  d E =-.196833E+02
+ curvature:  -0.50 expect dE=-0.596E+01 dE for cont linesearch -0.669E-02
+ ZBRENT: bisectioning
+ opt :   0.4877  next Energy= -1161.132990 (dE=-0.221E+02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.115544815082E+04    0.32726E+01   -0.60512E+02  1248   0.221E+01    0.140E+01
+RMM:   2    -0.116134840300E+04   -0.59003E+01   -0.71003E+01  1105   0.723E+00    0.445E+00
+RMM:   3    -0.116233651318E+04   -0.98811E+00   -0.12282E+01  1134   0.298E+00    0.432E+00
+RMM:   4    -0.116240174609E+04   -0.65233E-01   -0.15912E+00  1180   0.131E+00    0.324E+00
+RMM:   5    -0.116238426109E+04    0.17485E-01   -0.34709E-01  1128   0.635E-01    0.997E-01
+RMM:   6    -0.116238490318E+04   -0.64210E-03   -0.13058E-01  1112   0.374E-01    0.789E-01
+RMM:   7    -0.116238376483E+04    0.11384E-02   -0.29668E-02  1192   0.184E-01    0.366E-01
+RMM:   8    -0.116238313725E+04    0.62758E-03   -0.10798E-02  1109   0.982E-02    0.210E-01
+RMM:   9    -0.116238339396E+04   -0.25671E-03   -0.25782E-03  1174   0.513E-02    0.117E-01
+RMM:  10    -0.116238341704E+04   -0.23079E-04   -0.63058E-04   901   0.244E-02
+   5 F= -.11623834E+04 E0= -.11623666E+04  d E =-.233460E+02
+ curvature: ****** expect dE=-0.131E+04 dE for cont linesearch -0.163E+03
+ ZBRENT: bisectioning
+ opt :   0.2438  next Energy= -1168.601727 (dE=-0.296E+02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116502129282E+04   -0.26379E+01   -0.26210E+02  1284   0.142E+01    0.167E+01
+RMM:   2    -0.116726551933E+04   -0.22442E+01   -0.28255E+01  1104   0.451E+00    0.238E+00
+RMM:   3    -0.116766766838E+04   -0.40215E+00   -0.51584E+00  1143   0.188E+00    0.560E+00
+RMM:   4    -0.116769628089E+04   -0.28613E-01   -0.65196E-01  1162   0.812E-01    0.332E+00
+RMM:   5    -0.116768958227E+04    0.66986E-02   -0.15528E-01  1124   0.403E-01    0.966E-01
+RMM:   6    -0.116768982744E+04   -0.24517E-03   -0.49295E-02  1148   0.216E-01    0.855E-01
+RMM:   7    -0.116768993771E+04   -0.11027E-03   -0.11438E-02  1228   0.106E-01    0.155E-01
+RMM:   8    -0.116769006337E+04   -0.12567E-03   -0.19994E-03  1052   0.451E-02    0.669E-02
+RMM:   9    -0.116769011411E+04   -0.50738E-04   -0.56178E-04   831   0.227E-02
+   6 F= -.11676901E+04 E0= -.11676860E+04  d E =-.286527E+02
+ curvature:  -6.79 expect dE=-0.246E+02 dE for cont linesearch -0.415E+01
+ ZBRENT: bisectioning
+ opt :   0.1219  next Energy= -1169.656579 (dE=-0.306E+02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116607442900E+04    0.16156E+01   -0.10357E+02  1296   0.866E+00    0.152E+01
+RMM:   2    -0.116618975829E+04   -0.11533E+00   -0.10270E+01  1104   0.270E+00    0.225E+00
+RMM:   3    -0.116628886746E+04   -0.99109E-01   -0.16679E+00  1115   0.113E+00    0.316E+00
+RMM:   4    -0.116631446639E+04   -0.25599E-01   -0.29565E-01  1204   0.506E-01    0.304E+00
+RMM:   5    -0.116631757300E+04   -0.31066E-02   -0.83833E-02  1107   0.255E-01    0.681E-01
+RMM:   6    -0.116631280312E+04    0.47699E-02   -0.20934E-02  1115   0.139E-01    0.145E+00
+RMM:   7    -0.116630989673E+04    0.29064E-02   -0.14239E-02  1109   0.864E-02    0.417E-01
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+[2026-09-23T14:46:25.208] error: *** JOB 1505865 ON rc4284 CANCELLED AT 2026-09-23T14:46:25 DUE TO TIME LIMIT ***
+[2026-09-23T14:46:25.218] error: *** STEP 1505865.0 ON rc4284 CANCELLED AT 2026-09-23T14:46:25 DUE TO TIME LIMIT ***
+srun: got SIGCONT
+srun: forcing job termination

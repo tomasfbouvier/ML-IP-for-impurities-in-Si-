@@ -60,7 +60,6 @@ def main(args):
         try:
             e = atoms.info['Energy'] - atoms1.info['Energy'] #- N*e0
             atoms2.info['energy'] = e
-        
         except:
             raise ValueError(f"{i}, I am missing energy!")
 
@@ -80,7 +79,6 @@ def main(args):
             pass
        
         atoms2 +=impurities
-        
         write(f"train.xyz", atoms2, format="extxyz", append = True)
 
 parser = argparse.ArgumentParser()

@@ -1,0 +1,7 @@
+LAMMPS (30 Mar 2026)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread.
+  using 1 OpenMP thread(s) per MPI task
+pair_style quip
+ERROR: Unrecognized pair style 'quip' is part of the ML-QUIP package which is not enabled in this LAMMPS binary.
+For more information see https://docs.lammps.org/err0010 (src/force.cpp:279)
+Last input line: pair_style quip

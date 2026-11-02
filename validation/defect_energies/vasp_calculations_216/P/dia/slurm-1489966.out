@@ -1,0 +1,200 @@
+srun: error: plugin_load_from_file: dlopen(/usr/lib64/slurm/argos-spank.so): /usr/lib64/slurm/argos-spank.so: cannot open shared object file: No such file or directory
+srun: error: spank: /usr/lib64/slurm/argos-spank.so: Dlopen of plugin file failed
+ running  384 mpi-ranks, with    1 threads/rank, on    1 nodes
+ distrk:  each k-point on   96 cores,    4 groups
+ distr:  one band on    8 cores,   12 groups
+ vasp.6.6.1 17Jul2026 (build Aug 31 2026 16:55:33) complex                       
+ POSCAR found type information on POSCAR SiP 
+ POSCAR found :  2 types and     216 ions
+ Reading from existing POTCAR
+ scaLAPACK will be used
+ Reading from existing POTCAR
+ LDA part: xc-table for (Slater+PW92), standard interpolation
+ -----------------------------------------------------------------------------
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|     The requested file  could not be found or opened for reading            |
+|     k-point information, and the KSPACING tag was also not set.             |
+|     Automatic k-point generation is used as a fallback, which may lead      |
+|     to unwanted results.                                                    |
+|                                                                             |
+ -----------------------------------------------------------------------------
+
+ found WAVECAR, reading the header
+ INCAR ok, starting setup
+ POSCAR ok, starting setup
+ FFT: planning ... GRIDC
+ FFT: planning ... GRID_SOFT
+ FFT: planning ... GRID
+ reading WAVECAR
+ the WAVECAR file was read successfully
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.118729728327E+04   -0.11873E+04   -0.44963E+01  1188   0.626E+00    0.525E+01
+RMM:   2    -0.117230575262E+04    0.14992E+02   -0.87235E+00  1104   0.277E+00    0.320E+01
+RMM:   3    -0.116542715430E+04    0.68786E+01   -0.20453E+01  1143   0.404E+00    0.199E+00
+RMM:   4    -0.116556221527E+04   -0.13506E+00   -0.14880E+00  1121   0.133E+00    0.110E+00
+RMM:   5    -0.116561411130E+04   -0.51896E-01   -0.28545E-01  1124   0.550E-01    0.756E-01
+RMM:   6    -0.116562378246E+04   -0.96712E-02   -0.43138E-02  1107   0.247E-01    0.398E-01
+RMM:   7    -0.116562566661E+04   -0.18841E-02   -0.12518E-02  1108   0.138E-01    0.128E-01
+RMM:   8    -0.116562589406E+04   -0.22745E-03   -0.37422E-03  1184   0.648E-02    0.105E-01
+RMM:   9    -0.116562600219E+04   -0.10813E-03   -0.94393E-04  1001   0.370E-02    0.771E-02
+RMM:  10    -0.116562599032E+04    0.11873E-04   -0.24162E-04   763   0.184E-02
+   1 F= -.11656260E+04 E0= -.11656174E+04  d E =-.116563E+04
+ curvature:   0.00 expect dE= 0.000E+00 dE for cont linesearch  0.000E+00
+ trial: gam= 0.00000 g(F)=  0.273E-02 g(S)=  0.000E+00 ort = 0.000E+00 (trialstep = 0.100E+01)
+ search vector abs. value=  0.273E-02
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116562743716E+04   -0.14350E-02   -0.32286E-02  1296   0.190E-01    0.121E-01
+RMM:   2    -0.116562760536E+04   -0.16819E-03   -0.19473E-03  1104   0.529E-02    0.565E-02
+RMM:   3    -0.116562762443E+04   -0.19075E-04   -0.34563E-04   795   0.245E-02
+   2 F= -.11656276E+04 E0= -.11656191E+04  d E =-.163412E-02
+ trial-energy change:   -0.001634  1 .order   -0.001577   -0.002733   -0.000421
+ step:   1.1821(harm=  1.1821)  dis= 0.00201  next Energy= -1165.627606 (dE=-0.162E-02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116562767927E+04   -0.73911E-04   -0.11834E-03  1308   0.355E-02    0.157E-02
+RMM:   2    -0.116562768640E+04   -0.71370E-05   -0.81206E-05   594   0.113E-02
+   3 F= -.11656277E+04 E0= -.11656191E+04  d E =-.169609E-02
+ curvature:  -0.59 expect dE=-0.557E-03 dE for cont linesearch -0.283E-05
+ trial: gam= 0.30278 g(F)=  0.942E-03 g(S)=  0.000E+00 ort = 0.114E-03 (trialstep = 0.104E+01)
+ search vector abs. value=  0.126E-02
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116562845277E+04   -0.77350E-03   -0.13124E-02  1176   0.121E-01    0.599E-02
+RMM:   2    -0.116562850913E+04   -0.56358E-04   -0.65730E-04  1086   0.323E-02
+   4 F= -.11656285E+04 E0= -.11656200E+04  d E =-.822726E-03
+ trial-energy change:   -0.000823  1 .order   -0.000794   -0.001012   -0.000575
+ step:   2.4000(harm=  2.4000)  dis= 0.00190  next Energy= -1165.628858 (dE=-0.117E-02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116562895408E+04   -0.50131E-03   -0.22934E-02  1164   0.159E-01    0.800E-02
+RMM:   2    -0.116562904869E+04   -0.94605E-04   -0.11750E-03  1104   0.440E-02    0.356E-02
+RMM:   3    -0.116562906019E+04   -0.11500E-04   -0.20952E-04   691   0.201E-02
+   5 F= -.11656291E+04 E0= -.11656205E+04  d E =-.137378E-02
+ curvature:  -1.55 expect dE=-0.777E-03 dE for cont linesearch -0.265E-04
+ trial: gam= 0.42599 g(F)=  0.501E-03 g(S)=  0.000E+00 ort = 0.147E-03 (trialstep = 0.131E+01)
+ search vector abs. value=  0.855E-03
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116562955617E+04   -0.50748E-03   -0.14042E-02  1152   0.125E-01    0.600E-02
+RMM:   2    -0.116562961324E+04   -0.57071E-04   -0.66655E-04  1095   0.325E-02
+   6 F= -.11656296E+04 E0= -.11656211E+04  d E =-.553056E-03
+ trial-energy change:   -0.000553  1 .order   -0.000510   -0.000738   -0.000283
+ step:   2.1215(harm=  2.1215)  dis= 0.00157  next Energy= -1165.629658 (dE=-0.598E-03)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.116562973601E+04   -0.17984E-03   -0.56466E-03  1284   0.787E-02    0.411E-02
+RMM:   2    -0.116562975563E+04   -0.19622E-04   -0.27073E-04   729   0.213E-02
+   7 F= -.11656298E+04 E0= -.11656212E+04  d E =-.695448E-03
+ curvature:  -1.61 expect dE=-0.531E-03 dE for cont linesearch -0.646E-05
+ trial: gam= 0.73054 g(F)=  0.330E-03 g(S)=  0.000E+00 ort = 0.586E-04 (trialstep = 0.144E+01)
+ search vector abs. value=  0.872E-03
+ reached required accuracy - stopping structural energy minimisation
+ writing wavefunctions
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL

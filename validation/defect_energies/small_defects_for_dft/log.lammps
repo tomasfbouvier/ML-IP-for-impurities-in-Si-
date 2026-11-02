@@ -1,0 +1,166 @@
+LAMMPS (30 Mar 2026)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread.
+  using 1 OpenMP thread(s) per MPI task
+units metal
+atom_style	atomic
+boundary	p p p
+
+read_data  ${input}
+read_data  Sb_subs.data
+Reading data file ...
+  triclinic box = (-0.076355576 -0.076355565 -0.076355584) to (10.843275 10.843273 10.843276) with tilt (2.0215916e-06 -3.7938219e-06 1.4526029e-06)
+  2 by 1 by 3 MPI processor grid
+  reading atoms ...
+  64 atoms
+  reading velocities ...
+  64 velocities
+  read_data CPU = 0.002 seconds
+
+pair_style hybrid/overlay eam/fs tabgap nep
+pair_coeff * * eam/fs ../../../${X}/${X}-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../../P/${X}-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../../P/P-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../../P/P-Si.eam.fs Si P
+Reading eam/fs potential file ../../../P/P-Si.eam.fs with DATE: 2026-09-17
+pair_coeff * * tabgap ../../../${X}/${X}-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../../P/${X}-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../../P/P-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../../P/P-Si.tabgap Si P no yes
+Reading tabgap potential file ../../../P/P-Si.tabgap with DATE: 2026-09-17
+pair_coeff * * nep nep.txt Si NULL
+
+mass 1 28.0855
+mass 2 ${mass}
+mass 2 31
+
+min_style fire
+#min_style cg
+#fix 2 all box/relax aniso 0.0
+
+timestep 0.001
+thermo 100
+
+#min_style 	cg
+min_modify dmax 0.01
+#fix 1 all recenter INIT INIT INIT
+#fix 2 all box/relax aniso 0.0 #vmax 0.1
+
+
+
+thermo 10
+thermo_style custom step pe atoms
+thermo_modify	line one flush yes format 1 "ec %8lu" format float "%20.10g" lost warn
+
+minimize 1.0e-7 1.0e-8 2000 2000
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 3.5, bins = 4 4 4
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair eam/fs, perpetual, half/full from (2)
+      attributes: half, newton on, cut 7
+      pair build: halffull/newton/tri
+      stencil: none
+      bin: none
+  (2) pair tabgap, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+  (3) pair nep, perpetual, skip from (2)
+      attributes: full, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+  Parameters for fire:
+    dmax  delaystep dtgrow dtshrink alpha0 alphashrink tmax tmin   integrator   halfstepback   abcfire  
+    0.01     20      1.1     0.5     0.25     0.99      10  0.02 eulerimplicit      yes          no     
+Per MPI rank memory allocation (min/avg/max) = 4.715 | 4.715 | 4.715 Mbytes
+   Step         PotEng        Atoms   
+ec        0         -347.1261291         64 
+ec       10         -347.1334046         64 
+ec       20         -347.1458151         64 
+ec       30         -347.1567181         64 
+ec       40         -347.1569995         64 
+ec       50         -347.1570547         64 
+ec       54         -347.1570713         64 
+Loop time of 0.591938 on 6 procs for 54 steps with 64 atoms
+
+99.8% CPU use with 6 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+     -347.126129118677  -347.157067722289  -347.157071285458
+  Force two-norm initial, final = 0.74081104 0.0066207505
+  Force max component initial, final = 0.13769392 0.00090760657
+  Final line search alpha, max atom move = 0 0
+  Iterations, force evaluations = 54 56
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0.23929    | 0.45209    | 0.5766     |  19.1 | 76.37
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.013      | 0.13745    | 0.35019    |  34.7 | 23.22
+Output  | 5.7414e-05 | 8.0214e-05 | 0.00018953 |   0.0 |  0.01
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0.002318   |            |       |  0.39
+
+Nlocal:        10.6667 ave          12 max           8 min
+Histogram: 2 0 0 0 0 0 0 0 0 4
+Nghost:        455.333 ave         461 max         448 min
+Histogram: 2 0 0 0 0 0 2 0 0 2
+Neighs:        373.333 ave         420 max         280 min
+Histogram: 2 0 0 0 0 0 0 0 0 4
+FullNghs:      746.667 ave         840 max         560 min
+Histogram: 2 0 0 0 0 0 0 0 0 4
+
+Total # of neighbors = 4480
+Ave neighs/atom = 70
+Neighbor list builds = 0
+Dangerous builds = 0
+
+write_data ${output}
+write_data Sb_subs.data.out
+System init for write_data ...
+run 0
+WARNING: No fixes with time integration, atoms won't move
+For more information see https://docs.lammps.org/err0028 (src/verlet.cpp:60)
+Per MPI rank memory allocation (min/avg/max) = 4.715 | 4.715 | 4.715 Mbytes
+   Step         PotEng        Atoms   
+ec       54         -347.1570713         64 
+Loop time of 2.6746e-05 on 6 procs for 0 steps with 64 atoms
+
+91.0% CPU use with 6 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0          | 0          | 0          |   0.0 |  0.00
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 2.675e-05  |            |       |100.00
+
+Nlocal:        10.6667 ave          13 max           8 min
+Histogram: 2 0 0 0 0 0 1 0 2 1
+Nghost:        455.333 ave         461 max         448 min
+Histogram: 2 0 0 0 0 0 1 1 0 2
+Neighs:        373.333 ave         460 max         279 min
+Histogram: 2 0 0 0 0 1 0 1 1 1
+FullNghs:      746.667 ave         910 max         560 min
+Histogram: 2 0 0 0 0 0 1 0 2 1
+
+Total # of neighbors = 4480
+Ave neighs/atom = 70
+Neighbor list builds = 0
+Dangerous builds = 0
+clear
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread.
+  using 1 OpenMP thread(s) per MPI task
+
+Total wall time: 0:00:02

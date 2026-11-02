@@ -1,2 +1,30 @@
 *OUTCAR*
 *stdout*
+
+# Nested repository
+utilities/tabgap/
+
+# Large VASP outputs
+WAVECAR
+CHG
+CHGCAR
+LOCPOT
+ELFCAR
+PROCAR
+DOSCAR
+vasprun.xml
+XDATCAR
+
+# LAMMPS trajectory dumps
+dump.lammpstrj*
+
+# Tabulated potential files (>10 MB)
+*.tabgap
+*.tabgap_*
+*.tabgap.h5
+
+# Other files >10 MB
+/utilities/Si_train.xyz
+/validation/dimer/data_fig_ali2.xyz
+/validation/displaced_atom/data_fig_ali2.xyz
+/validation/displaced_atom_delete/data_fig_ali2.xyz

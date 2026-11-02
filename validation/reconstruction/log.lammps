@@ -1,0 +1,92 @@
+LAMMPS (30 Mar 2026)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread.
+  using 1 OpenMP thread(s) per MPI task
+units metal
+timestep 0.001
+boundary p p p
+read_data lammps.data
+Reading data file ...
+  orthogonal box = (-0.039868326 -0.039868326 -0.039868326) to (65.559078 32.759605 32.759605)
+  3 by 1 by 2 MPI processor grid
+  reading atoms ...
+  3456 atoms
+  read_data CPU = 0.018 seconds
+
+
+timestep 0.001
+variable seed equal 11 #uloop 16
+
+pair_style hybrid/overlay eam/fs tabgap nep
+pair_coeff * * eam/fs ../../${X}/${X}-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../Sb/${X}-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../Sb/Sb-Si.eam.fs Si ${X}
+pair_coeff * * eam/fs ../../Sb/Sb-Si.eam.fs Si Sb
+Reading eam/fs potential file ../../Sb/Sb-Si.eam.fs with DATE: 2026-04-22
+pair_coeff * * tabgap ../../${X}/${X}-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../Sb/${X}-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../Sb/Sb-Si.tabgap Si ${X} no yes
+pair_coeff * * tabgap ../../Sb/Sb-Si.tabgap Si Sb no yes
+Reading tabgap potential file ../../Sb/Sb-Si.tabgap with DATE: 2026-04-22
+pair_coeff * * nep nep.txt Si NULL
+
+region lower_half block $(xlo) $(2*xhi/3-0.1) INF INF INF INF
+region lower_half block -0.039868326199999998272 $(2*xhi/3-0.1) INF INF INF INF
+region lower_half block -0.039868326199999998272 43.606052188933333014 INF INF INF INF
+region upper_half block $(2*xhi/3-0.1) $(xhi) INF INF INF INF
+region upper_half block 43.606052188933333014 $(xhi) INF INF INF INF
+region upper_half block 43.606052188933333014 65.559078283399998099 INF INF INF INF
+
+group lower region lower_half
+2264 atoms in group lower
+group upper region upper_half
+1192 atoms in group upper
+
+thermo 10
+
+velocity all create 1000.0 $(4883949+v_seed*3) rot yes dist gaussian
+velocity all create 1000.0 4883982 rot yes dist gaussian
+
+fix npt_non upper nvt temp 1200 1200 0.1
+
+fix npt_melt lower npt temp 2000.0 1200.0 0.1 iso 0.0 0.0 1.0
+
+dump            myDump all custom 200 dump.lammpstrj.$(part) element id x y z
+dump            myDump all custom 200 dump.lammpstrj.0 element id x y z
+dump_modify     myDump element Si Sb time yes
+
+run 10000
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 7
+  ghost atom cutoff = 7
+  binsize = 3.5, bins = 19 10 10
+  3 neighbor lists, perpetual/occasional/extra = 3 0 0
+  (1) pair eam/fs, perpetual, half/full from (2)
+      attributes: half, newton on, cut 7
+      pair build: halffull/newton
+      stencil: none
+      bin: none
+  (2) pair tabgap, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+  (3) pair nep, perpetual, skip from (2)
+      attributes: full, newton on
+      pair build: skip
+      stencil: none
+      bin: none
+Per MPI rank memory allocation (min/avg/max) = 4.792 | 4.793 | 4.793 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press          Volume    
+         0   1000          -18731.978      0             -18285.384      6362.0534      70571.704    
+        10   655.44543     -18576.351      0             -18283.633      9074.5508      70577.113    
+        20   317.0183      -18422.413      0             -18280.835      9291.3313      70596.342    
+        30   481.90497     -18493.026      0             -18277.81       2917.9757      70629.168    
+        40   549.09564     -18518.431      0             -18273.208     -1090.2264      70666.984    
+        50   348.72186     -18424.702      0             -18268.965      69.358692      70703.827    
+        60   288.36529     -18394.707      0             -18265.924      700.18583      70740.67     
+        70   511.13819     -18489.886      0             -18261.614     -1187.9298      70778.214    
+        80   576.95794     -18512.716      0             -18255.051      111.91136      70814.358    
+        90   448.87295     -18449.456      0             -18248.992      4114.5931      70851.072    
+       100   564.0059      -18495.127      0             -18243.2

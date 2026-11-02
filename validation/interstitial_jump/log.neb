@@ -1,0 +1,250 @@
+LAMMPS (30 Mar 2026)
+Running on 17 partitions of processors
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Reading NEB coordinate file(s) ...
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Use the NEP4 potential with 1 atom type.
+    type 0 (Si with Z = 14) has cutoffs (5 A, 5 A).
+    has flexible ZBL.
+    n_max_radial = 12.
+    n_max_angular = 8.
+    basis_size_radial = 12.
+    basis_size_angular = 12.
+    l_max_3body = 6.
+    l_max_4body = 2.
+    l_max_5body = 1.
+    ANN = 76-50-1.
+    number of neural network parameters = 3901.
+    number of descriptor parameters = 286.
+    total number of parameters = 4187.
+Setting up regular NEB ...
+    Step     MaxReplicaForce  MaxAtomForce      GradV0         GradV1         GradVc          EBF            EBR            RDT            RD1            PE1            RD2            PE2            RD3            PE3            RD4            PE4            RD5            PE5            RD6            PE6            RD7            PE7            RD8            PE8            RD9            PE9            RD10           PE10           RD11           PE11           RD12           PE12           RD13           PE13           RD14           PE14           RD15           PE15           RD16           PE16           RD17           PE17      
+         0   2.0297298        0.83478791     0.22996108     0.94737403     2.0377987      0.92567312     0.66242703     2.0089471      0              -1173.9408     0.0625         -1173.899      0.125          -1173.8123     0.1875         -1173.6928     0.25           -1173.5464     0.3125         -1173.3816     0.375          -1173.218      0.4375         -1173.0903     0.5            -1173.0189     0.5625         -1173.0151     0.625          -1173.0786     0.6875         -1173.1898     0.75           -1173.3224     0.8125         -1173.4516     0.875          -1173.5649     0.9375         -1173.6477     1              -1173.6776     
+        22   0.86451002       0.10286254     0.20687426     0.2674608      0.80526674     0.78827501     0.54757197     2.0484629      0              -1173.9448     0.065361308    -1173.9103     0.12737722     -1173.8455     0.18966771     -1173.7574     0.25193726     -1173.6429     0.31448768     -1173.5056     0.37722001     -1173.3589     0.43970126     -1173.2361     0.50215981     -1173.164      0.56380495     -1173.1565     0.62612608     -1173.218      0.68853363     -1173.3261     0.75119056     -1173.4448     0.81374432     -1173.5494     0.87624156     -1173.6315     0.93863949     -1173.686      1              -1173.7041     
+Setting up climbing ...
+Climbing replica = 10
+    Step     MaxReplicaForce  MaxAtomForce      GradV0         GradV1         GradVc          EBF            EBR            RDT            RD1            PE1            RD2            PE2            RD3            PE3            RD4            PE4            RD5            PE5            RD6            PE6            RD7            PE7            RD8            PE8            RD9            PE9            RD10           PE10           RD11           PE11           RD12           PE12           RD13           PE13           RD14           PE14           RD15           PE15           RD16           PE16           RD17           PE17      
+        22   0.86451002       0.10286254     0.20687426     0.2674608      0.80526674     0.78827501     0.54757197     2.0484629      0              -1173.9448     0.065361308    -1173.9103     0.12737722     -1173.8455     0.18966771     -1173.7574     0.25193726     -1173.6429     0.31448768     -1173.5056     0.37722001     -1173.3589     0.43970126     -1173.2361     0.50215981     -1173.164      0.56380495     -1173.1565     0.62612608     -1173.218      0.68853363     -1173.3261     0.75119056     -1173.4448     0.81374432     -1173.5494     0.87624156     -1173.6315     0.93863949     -1173.686      1              -1173.7041     
+        44   0.67697126       0.068830181    0.18859911     0.19837068     0.61576076     0.76030428     0.52067946     2.091572       0              -1173.9476     0.06733665     -1173.9156     0.12869255     -1173.859      0.19095546     -1173.7823     0.25350988     -1173.6783     0.31658599     -1173.5472     0.37999386     -1173.4019     0.44254478     -1173.2758     0.50441902     -1173.199      0.55813654     -1173.1873     0.62648344     -1173.2515     0.68862737     -1173.3608     0.75149125     -1173.4792     0.81443454     -1173.578      0.87720044     -1173.6502     0.93950469     -1173.6946     1              -1173.7079     

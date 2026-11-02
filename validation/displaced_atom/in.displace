@@ -1,0 +1,58 @@
+variable dmax equal 8.25
+variable npts equal 100
+
+units           metal
+atom_style      atomic
+boundary        p p p
+atom_modify     map array          # needed to address atom 1 by id in formulas
+
+if "${X} == Si" then &
+    "read_data   dia.data" &
+    "pair_style nep" &
+    "pair_coeff * * nep.txt Si" &
+    "mass 1 28.0855" &
+else &
+    "read_data       Sb_subs.data" &
+    "pair_style hybrid/overlay eam/fs tabgap nep" &
+    "pair_coeff * * eam/fs ../../${X}/${X}-Si.eam.fs Si ${X}" &
+    "pair_coeff * * tabgap ../../${X}/${X}-Si.tabgap Si ${X} no yes" &
+    "pair_coeff * * nep nep.txt Si NULL"
+# original position of atom 1 (ASE atom 0), frozen as numbers
+variable x0 equal $(x[1])
+variable y0 equal $(y[1])
+variable z0 equal $(z[1])
+
+# unit direction
+#variable ux equal -0.0839203652
+#variable uy equal  0.0209800913
+#variable uz equal  0.1888208218
+variable ux equal -0.666097
+variable uy equal 0.333049
+variable uz equal -0.999146
+variable n  equal sqrt(v_ux^2+v_uy^2+v_uz^2)
+
+thermo_style    custom step pe
+thermo_modify   format float %.10g
+
+shell rm -f energy_${X}.dat predict_${X}.dump
+print "# i d(A) disp(A) E_pot(eV) |F|(eV/A)" file energy_${X}.dat screen no
+
+variable i loop ${npts}
+label scan
+
+    variable d  equal (v_i-1)*${dmax}/(${npts}-1)
+    variable px equal v_d*v_ux/v_n
+    variable py equal v_d*v_uy/v_n
+    variable pz equal v_d*v_uz/v_n
+
+    # place atom 1 at d*direction (absolute, as in the ASE script)
+    set atom 1 x ${px} y ${py} z ${pz}
+    run 0
+
+    variable e    equal pe
+    variable disp equal sqrt((v_px-v_x0)^2+(v_py-v_y0)^2+(v_pz-v_z0)^2)
+    variable fmod equal sqrt(fx[1]^2+fy[1]^2+fz[1]^2)
+    print "${disp} ${e} ${fmod}" append energy_${X}.dat screen no
+    write_dump  all custom predict_${X}.dump id type x y z fx fy fz modify append yes  
+next i
+jump SELF scan
